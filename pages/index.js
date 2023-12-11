@@ -2,7 +2,7 @@ import Head from 'next/head';
 import classes from "@/styles/Home.module.css";
 import Header from '@/components/layout/header';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -17,3 +17,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home;
