@@ -1,0 +1,55 @@
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(77, 84, 150, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal_content {
+  background-color: var(--primary300);
+  min-width: 75vw;
+  overflow-y: auto; /* Enable scrolling if form content exceeds container height */
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal_header {
+  font-size: 1.75rem;
+  padding: 0.5rem;
+  color: var(--primary500);
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 3rem;
+}
+
+.buttonPosition {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 10%;
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+.form {
+    padding: 2rem;
+}
+
+.modal_footer {
+  padding: 0.5rem;
+  background-color: black;
+  text-align: center;
+}

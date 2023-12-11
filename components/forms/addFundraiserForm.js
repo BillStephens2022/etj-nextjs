@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import DatePicker from "react-datepicker";
 import { CldUploadWidget } from "next-cloudinary";
 import "react-datepicker/dist/react-datepicker.css";
-import Button from "@/components/buttons/button";
+import Button from "@/components/ui/Button";
 import classes from "@/components/forms/addFundraiser.module.css";
 
 const initialFormData = {
@@ -133,9 +133,8 @@ const AddFundRaiserForm = ({ onSubmit }) => {
           <div className={classes.form_group}>
             <Button
               type="submit"
-              text="Submit"
               margin="0.5rem 0 0.5rem 0"
-            ></Button>
+            >Submit</Button>
           </div>
         </form>
       </div>
