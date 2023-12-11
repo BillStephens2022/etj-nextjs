@@ -1,0 +1,31 @@
+.footer {
+    background-color: rgb(41, 39, 39);
+    min-height: 2vh;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: flex-start;
+    align-items: center;
+}
+
+.text {
+    font-size: 0.75rem;
+    color: lightgray;
+}
+
+.link {
+    text-decoration: none;
+    color: steelblue;
+}
+
+.login_icon {
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        font-size: 0.5rem;
+    }
+    
+  }
