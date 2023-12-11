@@ -1,0 +1,8 @@
+
+
+.button_div {
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}

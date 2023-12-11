@@ -69,6 +69,17 @@ const Navbar = () => {
                 Fundraising
               </Link>
             </li>
+            <li className={classes.nav_item}>
+              <Link
+                href="/admin"
+                className={`${classes.nav_item} ${classes.nav_link} ${
+                  router.pathname === "/admin" ? classes.active : ""
+                }`}
+                onClick={handleLinkClick}
+              >
+                Admin
+              </Link>
+            </li>
            
             {/* {session && (
               <>

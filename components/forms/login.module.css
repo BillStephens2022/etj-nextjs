@@ -1,0 +1,73 @@
+.form_container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form {
+    padding: 1rem;
+    font-size: 1rem;
+    width: 33.33%;
+    border: 2px solid seagreen;
+    text-align: center;
+    background-color: whitesmoke;
+    color: seagreen;
+  }
+  
+  .form_header {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: coral;
+  }
+  
+  .label {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+  }
+  
+  .input {
+      height: 2.25rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      margin: 0.5rem;
+  }
+  
+  .successMessage_p {
+    color: chartreuse;
+    font-size: 2rem;
+  }
+  
+  .errorMessage_p {
+    color: white;
+    background-color: red;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .form_container {
+      width: 98%;
+      margin: auto;
+    }
+    .form {
+        width: 86%;
+    }
+  
+    .form_group {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .form_header, .label {
+      font-size: 1.5rem;
+    }
+  
+    .input {
+      margin: .5rem auto;
+      width: 75%;
+    }
+  
+   
+  }

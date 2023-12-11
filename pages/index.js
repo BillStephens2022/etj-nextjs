@@ -1,6 +1,8 @@
-import Head from 'next/head';
+import Head from "next/head";
+import Image from "next/image";
+import logo from "../public/images/logo2.png";
 import classes from "@/styles/Home.module.css";
-import Header from '@/components/layout/header';
+import Header from "@/components/layout/header";
 
 const Home = () => {
   return (
@@ -13,9 +15,21 @@ const Home = () => {
       </Head>
       <main className={classes.main}>
         <Header>ETJ</Header>
+        {/* <div className={classes.background_image_container}></div> */}
+        <div className={classes.logo_container}>
+          <Image
+            src={logo}
+            alt="logo"
+            width={300}
+            height={208}
+            placeholder="blur"
+            style={{objectFit: "contain"}}
+            className={classes.logo}
+          />
+        </div>
       </main>
     </>
-  )
-}
+  );
+};
 
 export default Home;

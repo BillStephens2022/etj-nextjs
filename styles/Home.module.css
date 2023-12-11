@@ -7,3 +7,13 @@
   color: white;
   text-align: center;
 }
+
+.logo_container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
