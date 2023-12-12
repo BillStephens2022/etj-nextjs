@@ -48,6 +48,7 @@ const LoginForm = ({ closeModal }) => {
               type="text"
               name="username"
               placeholder="username"
+              autoComplete="username"
               className={classes.input}
               id="username"
               ref={usernameInputRef}
@@ -61,6 +62,7 @@ const LoginForm = ({ closeModal }) => {
               type="password"
               name="password"
               placeholder="password"
+              autoComplete="current-password"
               className={classes.input}
               id="password"
               ref={passwordInputRef}
