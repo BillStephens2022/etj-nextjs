@@ -1,5 +1,6 @@
 .main {
   background-color: var(--primary500);
+  text-align: center;
 }
 
 .header {

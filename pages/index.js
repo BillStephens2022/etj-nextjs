@@ -3,6 +3,7 @@ import Image from "next/image";
 import logo from "../public/images/logo2.png";
 import classes from "@/styles/Home.module.css";
 import Header from "@/components/layout/header";
+import Button from "@/components/ui/Button";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={classes.main}>
+      <Button margin="1rem" backgroundImage="var(--linear-gradient-red)" href="https://www.mightycause.com/story/Iasxuf">Donate</Button>
         <Header>ETJ</Header>
         {/* <div className={classes.background_image_container}></div> */}
         <div className={classes.logo_container}>
@@ -27,6 +29,7 @@ const Home = () => {
             className={classes.logo}
           />
         </div>
+        
       </main>
     </>
   );

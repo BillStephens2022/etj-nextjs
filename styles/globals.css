@@ -3,5 +3,6 @@
   --primary500: steelblue;
 
   --secondary-color: #6c757d;
+  --linear-gradient-red: linear-gradient(135deg, #F5515F 0%, #a1051d 100%);
   background-color: var(--primary300);
 }

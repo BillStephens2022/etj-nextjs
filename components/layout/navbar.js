@@ -1,13 +1,13 @@
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
-// import { signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-// import Button from "@/components/buttons/button";
+import Button from "@/components/ui/Button";
 import classes from "./navbar.module.css";
 
 const Navbar = () => {
-//   const { data: session } = useSession();
+  const { data: session } = useSession();
   const [isChecked, setIsChecked] = useState(false);
 
   const router = useRouter();
@@ -16,9 +16,9 @@ const Navbar = () => {
     setIsChecked(false);
   };
 
-//   const logoutHandler = () => {
-//     signOut();
-//   }
+  const logoutHandler = () => {
+    signOut();
+  }
 
   return (
     <>
@@ -68,20 +68,8 @@ const Navbar = () => {
               >
                 Fundraising
               </Link>
-            </li>
-            <li className={classes.nav_item}>
-              <Link
-                href="/admin"
-                className={`${classes.nav_item} ${classes.nav_link} ${
-                  router.pathname === "/admin" ? classes.active : ""
-                }`}
-                onClick={handleLinkClick}
-              >
-                Admin
-              </Link>
-            </li>
-           
-            {/* {session && (
+            </li>          
+            {session && (
               <>
                <li className={classes.nav_item}>
                <Link
@@ -96,15 +84,12 @@ const Navbar = () => {
              </li>
               <li className={classes.nav_logout_button}>
                 <Button
-                  text="Log Off"
                   backgroundImage="linear-gradient(135deg, #F5515F 0%,#a1051d 100%)"
                   onClick={logoutHandler}
-                 
-                /> 
-              </li>
-              
+                 >Log off</Button>
+              </li>             
              </>
-            )} */}
+            )}
           </ul>
         </nav>
       </div>

@@ -1,5 +1,15 @@
 
 
+.welcome_header {
+  text-align: center;
+  color: var(--primary500);
+}
+
+.welcome_header_span {
+    color: magenta;
+    text-transform: uppercase;
+}
+
 .button_div {
     margin: auto;
     padding: 1rem;

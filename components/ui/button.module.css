@@ -1,4 +1,4 @@
-.btn {
+.custom_btn {
     background: linear-gradient(135deg, #184e68 0%, #57ca85 100%);
     color: white;
     border: none;
@@ -14,21 +14,21 @@
     align-self: center;
   }
   
-  .btn:hover {
+  .custom_btn:hover {
     transform: scale(1.05);
     box-shadow: 3px 3px 5px white;
   }
   
   
   @media only screen and (max-width: 1024px) {
-    .btn {
+    .custom_btn {
       font-size: 0.9rem;
       letter-spacing: 0.1rem;
     }
   }
   
   @media only screen and (max-width: 767px) {
-    .btn {
+    .custom_btn {
       font-size: 0.8rem;
       letter-spacing: 0.1rem;
     }

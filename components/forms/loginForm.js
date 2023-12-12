@@ -3,7 +3,7 @@ import { signIn } from "next-auth/react";
 import Button from "@/components/ui/Button";
 import classes from "@/components/forms/login.module.css";
 
-const LoginForm = () => {
+const LoginForm = ({ closeModal }) => {
 
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
@@ -24,6 +24,7 @@ const LoginForm = () => {
       if (response?.status == 200) {
         console.log("Login successful!");
         setLoginError(null);
+        closeModal();
       } else {
         console.error("Login failed: ", response?.error);
         setLoginError("Invalid username or password.");
