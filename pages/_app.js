@@ -8,14 +8,14 @@ const App = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    // <SessionProvider session={session}>
+    <SessionProvider session={session}>
       <Layout>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <Component {...pageProps} />
       </Layout>
-    // </SessionProvider>
+    </SessionProvider>
   );
 }
 

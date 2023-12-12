@@ -3,19 +3,20 @@ import Button from "@/components/ui/Button";
 import classes from "@/components/forms/login.module.css";
 
 const createUser = async (username, password) => {
-    const response = await fetch("/api/auth/signup", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(data.message || "Something went wrong!");
-    }
-    return data;
+  console.log("attempting to create user:  ", username, password);
+  const response = await fetch("/api/auth/signup", {
+    method: "POST",
+    body: JSON.stringify({ username, password }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || "Something went wrong!");
   }
+  return data;
+};
 
 const AdminSignup = () => {
   const usernameInputRef = useRef();
@@ -30,16 +31,16 @@ const AdminSignup = () => {
     const enteredConfirmedPassword = confirmPasswordInputRef.current.value;
 
     if (enteredPassword === enteredConfirmedPassword) {
-    try {
+      try {
         const result = await createUser(enteredUsername, enteredPassword);
         console.log(result);
       } catch (error) {
         console.log(error);
       }
     } else {
-        console.log("Passwords don't match, try again!");
+      console.log("Passwords don't match, try again!");
     }
-  }
+  };
 
   return (
     <>
@@ -54,6 +55,7 @@ const AdminSignup = () => {
               type="text"
               name="username"
               placeholder="username"
+              autoComplete="username"
               className={classes.input}
               id="username"
               ref={usernameInputRef}
@@ -66,6 +68,7 @@ const AdminSignup = () => {
             <input
               type="password"
               name="password"
+              autoComplete="current-password"
               placeholder="password"
               className={classes.input}
               id="password"
@@ -79,17 +82,18 @@ const AdminSignup = () => {
             <input
               type="password"
               name="confirm-password"
+              autoComplete="current-password"
               placeholder="confirm password"
               className={classes.input}
               id="confirm-password"
               ref={confirmPasswordInputRef}
             />
           </div>
-          <Button type="button" onClick={handleSubmit} text="Submit"></Button>
+          <Button type="submit">Submit</Button>
         </form>
       </div>
     </>
   );
-}
+};
 
 export default AdminSignup;
