@@ -4,6 +4,7 @@ import useSWR from "swr";
 import Header from "@/components/layout/header";
 import classes from "@/pages/fundraising/fundraising.module.css";
 import FundraiserCard from "@/components/layout/fundraiserCard";
+import Button from "@/components/ui/Button";
 
 const Fundraising = ({ props }) => {
   const { data: session } = useSession();
@@ -37,7 +38,9 @@ const Fundraising = ({ props }) => {
   return (
     <>
       <Header pageTitle="Fundraising"></Header>
+      
       <div className={classes.main}>
+      <Button backgroundImage="var(--linear-gradient-red" href="https://www.mightycause.com/story/Iasxuf">Donate</Button>
         <div className={classes.fundraisers_div}>
           {fundraisers.map((fundraiser) => (
             <FundraiserCard fundraiser={fundraiser} />

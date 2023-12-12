@@ -9,6 +9,7 @@
   padding: 1rem;
   font-size: 7em;
   background: -webkit-linear-gradient(#eee, #333);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;

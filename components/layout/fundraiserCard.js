@@ -14,9 +14,6 @@ const FundraiserCard = ({ fundraiser }) => {
           </div>
           <div className={classes.card_header}>
             <h3 className={classes.fundraiser_title}>{fundraiser.title}</h3>
-            <h4 className={classes.fundraiser_aired}>
-              Aired: {fundraiser.fundraiserDate}
-            </h4>
           </div>
           <div className={classes.card_main}>
             <div className={classes.fundraiser_details}>

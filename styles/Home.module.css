@@ -3,6 +3,11 @@
   background-color: black;
   text-align: center;
   min-height: 73vh;
+  width: 100%; /* Set the width of the container */
+  height: 300px; /* Set the height of the container */
+  background-image: url('../public//images/background.jpg'); /* Replace 'path_to_your_image.jpg' with your image path */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image within the container */
 }
 
 .logo_container {
