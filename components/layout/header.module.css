@@ -1,12 +1,16 @@
 .header_container {
-  background-color: var(--primary500);
+  background-color: var(--primaryRed500);
 }
 
 .header {
+  font-family: "Aclonica", sans-serif;
+  letter-spacing: 1rem;
   margin: 0;
   padding: 1rem;
-  font-size: 3em;
-  color: white;
+  font-size: 7em;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: center;
 }
 

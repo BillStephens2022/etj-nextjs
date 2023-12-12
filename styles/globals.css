@@ -1,8 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Kanit:wght@400;700;900&family=Lato:wght@300;400;700;900&display=swap");
+
+
 :root {
   --primary300: lightsteelblue;
   --primary500: steelblue;
-
-  --secondary-color: #6c757d;
+  --primaryRed500: #a1051d;
+  --primaryGold500: #FFD700;
+  --primaryGreen500: #4CAF50;
+  --primaryGray500: #6c757d;
+  --primaryGray900: rgb(39, 36, 36);
   --linear-gradient-red: linear-gradient(135deg, #F5515F 0%, #a1051d 100%);
-  background-color: var(--primary300);
+  background-color: var(--primaryRed500);
+}
+
+body {
+  margin: 0;
 }

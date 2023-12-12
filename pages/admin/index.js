@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import { FaPlus } from "react-icons/fa6";
+import { GiCrossedSwords } from "react-icons/gi";
 import Header from "@/components/layout/header";
 import Button from "@/components/ui/Button";
 import FormModal from "@/components/forms/formModal";
@@ -46,6 +47,7 @@ const Admin = () => {
           <span className={classes.welcome_header_span}>
            {session?.user.username}
           </span>
+          <GiCrossedSwords />
         </h3>
       </div>
       <div className={classes.button_div}>
@@ -62,7 +64,7 @@ const Admin = () => {
           </Button>
         )}
       </div>
-      <div></div>
+      <main className={classes.main}></main>
       {modalOpen && <FormModal closeModal={closeModal} formType={formType} />}
     </>
   );

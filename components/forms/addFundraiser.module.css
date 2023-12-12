@@ -1,27 +1,21 @@
 .form_container {
   display: flex;
   justify-content: center;
+  
 }
 
 .form {
   padding: 1rem;
   font-size: 1rem;
   width: 75%;
-  border: 2px solid var(--primary500);
+  border: 0.5rem solid var(--primaryGray900);
   border-radius: 0.5rem;
   text-align: center;
   background-color: whitesmoke;
-  color: var(--primary500);
+  color: var(--primaryGray900);
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.form_header {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  color: coral;
 }
 
 .form_group {
@@ -42,7 +36,8 @@
   border-radius: 5px;
   margin: 0.25rem;
   width: 75%;
-  border: 1px solid var(--primary300);
+  border: 1px solid var(--primaryGray500);
+  
 }
 
 .input,
@@ -67,20 +62,29 @@
 
 .upload_button {
   color: white;
-  background-color: var(--primary500);
+  background-image: var(--linear-gradient-red);
   border: none;
   border-radius: 5px;
   margin: 0.5rem 0;
   padding: 0.5rem;
-  width: 5rem;
-  height: 5rem;
+  width: 10rem;
+  height: 3rem;
+  box-shadow: 3px 3px 2px var(--primaryGray500);
+  
 }
+
+.upload_button:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 3px var(--primaryGray900);
+  transform: scale(1.01) translateY(-1px);
+}
+
 
 .input:focus,
 .textarea:focus,
 .datePicker:focus {
-  border-width: 3px;
-  border-color: var(--primary500);
+  border-width: 2px;
+  border-color: var(--primaryRed500);
 }
 
 @media only screen and (max-width: 767px) {

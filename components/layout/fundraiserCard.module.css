@@ -1,0 +1,263 @@
+.card {
+  backdrop-filter: blur(1rem) saturate(180%);
+  -webkit-backdrop-filter: blur(1rem) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.25);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 2rem 2rem 0.5rem 2rem;
+  filter: drop-shadow(0 2rem 0.75rem rgba(0, 0, 0, 0.125));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 90%;
+  margin: 0.6rem;
+  transition: all 0.3s ease;
+}
+
+.card_inner_wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.banner_image {
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  min-width: 50%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.255);
+}
+
+.card:hover {
+  box-shadow: 3px 3px 8px white;
+  transform: scale(1.02);
+}
+
+.card_header {
+  display: block;
+  justify-content: center;
+  padding-top: 0.1rem;
+}
+
+.fundraiser_title {
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px white;
+  color: black;
+  text-transform: capitalize;
+  letter-spacing: 0.06rem;
+  font-weight: 900;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.fundraiser_aired {
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1rem;
+}
+
+.fundraiser_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+
+.fundraiser_detail {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  margin: 0.75rem 0;
+  font-size: 0.8rem;
+  color: white;
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
+}
+
+.link {
+  z-index: 1;
+  text-decoration: none;
+  margin: 1rem;
+  width: 30vw;
+}
+
+.cardFooter {
+  width: 100%;
+  height: 2rem;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.25rem 0;
+}
+
+.card_button {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.button_outline {
+  background: transparent;
+  color: rgba(0, 212, 255, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.button_outline:hover {
+  transform: scale(1.08);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.button_fill {
+  background: rgba(0, 212, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+  filter: drop-shadow(0);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.button_fill:hover {
+  transform: scale(1.08);
+  border-color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
+  transition: all 0.3s ease;
+}
+
+.footer_icon {
+  margin-right: 0.25rem;
+}
+
+.icon_button_div {
+  margin-top: 1.75rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 2000px) {
+  .card_button {
+    padding: 0.5rem;
+    width: 47%;
+    height: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .card {
+    min-width: 25%;
+    max-width: 25%;
+    margin: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .card_button {
+    padding: 0.5rem;
+    width: 47%;
+    height: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .card {
+    min-width: 38%;
+    max-width: 38%;
+    margin: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .card_button {
+    padding: 0.5rem;
+    width: 47%;
+    height: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .card {
+    min-width: 17rem;
+    max-width: 17rem;
+  }
+  .card_button {
+    padding: 0.5rem;
+    width: 47%;
+    height: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .card {
+    min-width: 19rem;
+    max-width: 19rem;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .card {
+    min-width: 18.25rem;
+    max-width: 18.25rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .card {
+    min-width: 16rem;
+    max-width: 16rem;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .title {
+    font-size: 1.7rem;
+  }
+  .card {
+    min-width: 12rem;
+  }
+
+  .banner_image {
+    height: 200px;
+  }
+
+  .fundraiser_title {
+    font-size: 1.5rem;
+  }
+
+  .fundraiser_aired {
+    font-size: 1rem;
+  }
+
+  .card_button {
+    padding: 6px 12px;
+    letter-spacing: 1px;
+    margin: 0.25rem;
+  }
+
+  .footer_icon {
+    display: none;
+  }
+}

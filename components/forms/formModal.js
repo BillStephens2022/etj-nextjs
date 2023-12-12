@@ -7,16 +7,20 @@ import classes from "@/components/forms/formModal.module.css";
 const FormModal = ({ formType, closeModal }) => {
   // Render different forms based on formType prop
   let formComponent;
+  let formTitle;
 
   switch (formType) {
     case "signup":
       formComponent = <div><LoginForm closeModal={closeModal} /></div>;
+      formTitle = "Log In"
       break;
     case "login":
       formComponent = <LoginForm closeModal={closeModal} />;
+      formTitle = "Log In"
       break;
     case "addFundraiser":
       formComponent = <AddFundraiserForm closeModal={closeModal} />;
+      formTitle = "Add Fundraiser"
       break;
     default:
       formComponent = null;
@@ -26,7 +30,7 @@ const FormModal = ({ formType, closeModal }) => {
     <div className={classes.modal}>
       <div className={classes.modal_content}>
         <div className={classes.modal_header}>
-          <h5 className={classes.modal_header}>Modal Title</h5>
+          <h5 className={classes.modal_header}>{formTitle}</h5>
           <button
             type="button"
             onClick={closeModal}

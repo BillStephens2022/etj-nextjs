@@ -5,6 +5,9 @@ const About = () => {
     return (
         <>
           <Header pageTitle="About Us"></Header>
+          <main className={classes.main}>
+
+          </main>
         </>
     );
 }

@@ -116,16 +116,19 @@ const AddFundRaiserForm = ({ closeModal }) => {
             />
           </div>
           <div className={classes.form_group}>
-            <label htmlFor="imageLink" className={classes.label}>
-              Fundraiser Image Preview
-            </label>
+           
             <div className={classes.upload_and_preview}>
               {uploadedImageUrl && (
+                <div>
+                 <label htmlFor="imageLink" className={classes.label}>
+                 Fundraiser Image Preview
+               </label>
                 <img
                   src={uploadedImageUrl}
                   alt="Uploaded Fundraiser Image"
                   className={classes.imagePreview}
                 />
+                </div>
               )}
               <CldUploadWidget
                 uploadPreset="etj_nonprofit"

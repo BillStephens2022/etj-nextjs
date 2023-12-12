@@ -5,7 +5,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(77, 84, 150, 0.8);
+  background-color: transparent;
+  opacity: 0.95;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +14,6 @@
 }
 
 .modal_content {
-  background-color: var(--primary300);
   min-width: 75vw;
   overflow-y: auto; /* Enable scrolling if form content exceeds container height */
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.9);
@@ -25,8 +25,8 @@
 .modal_header {
   font-size: 1.75rem;
   padding: 0.5rem;
-  color: var(--primary500);
-  background-color: black;
+  color: white;
+  background-color: var(--primaryGray900);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,17 +39,18 @@
   top: 5px;
   right: 5px;
   border-radius: 10%;
-  background-color: red;
+  background-color: var(--primaryRed500);
   color: white;
   border: none;
 }
 
 .form {
     padding: 2rem;
+    background-color: var(--primaryRed500);
 }
 
 .modal_footer {
   padding: 0.5rem;
-  background-color: black;
+  background-color: var(--primaryGray900);
   text-align: center;
 }
