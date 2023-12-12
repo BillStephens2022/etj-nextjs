@@ -8,11 +8,29 @@ import classes from "@/components/forms/addFundraiser.module.css";
 const initialFormData = {
   title: "",
   description: "",
-  date: "",
+  fundraiserDate: "",
   imageLink: "",
 };
 
-const AddFundRaiserForm = ({ onSubmit }) => {
+
+
+const createFundraiser = async (formData) => {
+  const response = await fetch("/api/fundraiser", {
+    method: "POST",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  console.log("Fundraiser created successfully: ", data);
+  if (!response.ok) {
+    throw new Error(data.message || "Something went wrong!");
+  }
+  return data;
+};
+
+const AddFundRaiserForm = ({ closeModal }) => {
   const [formData, setFormData] = useState(initialFormData);
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
@@ -44,7 +62,8 @@ const AddFundRaiserForm = ({ onSubmit }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("form submitted: ", formData);
-    onSubmit(formData);
+    await createFundraiser(formData);
+    closeModal();
   };
 
   return (
@@ -52,12 +71,13 @@ const AddFundRaiserForm = ({ onSubmit }) => {
       <div className={classes.form_container}>
         <form className={classes.form} onSubmit={handleSubmit}>
           <div className={classes.form_group}>
-            <label htmlFor="date" className={classes.label}>
+            <label htmlFor="fundraiserDate" className={classes.label}>
               Fundraiser Date
             </label>
             <DatePicker
               className={classes.datePicker}
-              id="date"
+              id="fundraiserDate"
+              name="fundraiserDate"
               placeholderText={"Fundraiser Date"}
               selected={
                 formData.fundraiserDate ? new Date(formData.fundraiserDate) : null

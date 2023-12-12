@@ -23,8 +23,6 @@ const Admin = () => {
     }
   }, [session]);
 
-  const handleAddFundraiser = () => {};
-
   const openModal = (type) => {
     console.log("Opening modal...");
     setModalOpen(true);
