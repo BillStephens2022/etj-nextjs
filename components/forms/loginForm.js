@@ -65,7 +65,7 @@ const LoginForm = () => {
               ref={passwordInputRef}
             />
           </div>
-          <Button type="submit" text="Submit" margin = "1rem 0 0.5rem 0"></Button>
+          <Button type="submit" text="Submit" margin = "1rem 0 0.5rem 0">Submit</Button>
           {loginError && ( // Conditionally render error message
             <p className={classes.errorMessage_p}>{loginError}</p>
           )}

@@ -18,7 +18,7 @@ const createUser = async (username, password) => {
   return data;
 };
 
-const AdminSignup = () => {
+const SignupForm = ({ closeModal }) => {
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
   const confirmPasswordInputRef = useRef();
@@ -34,6 +34,7 @@ const AdminSignup = () => {
       try {
         const result = await createUser(enteredUsername, enteredPassword);
         console.log(result);
+        closeModal();
       } catch (error) {
         console.log(error);
       }
@@ -96,4 +97,4 @@ const AdminSignup = () => {
   );
 };
 
-export default AdminSignup;
+export default SignupForm;

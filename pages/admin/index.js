@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import Header from "@/components/layout/header";
 import Button from "@/components/ui/Button";
 import FormModal from "@/components/forms/formModal";
-import LoginForm from "@/components/forms/loginForm";
-import SignupForm from "@/components/forms/signupForm";
 import classes from "@/pages/admin/admin.module.css";
 
 const Admin = () => {
@@ -19,9 +17,12 @@ const Admin = () => {
   useEffect(() => {
    
       if (!session) {
+        console.log("SESSION: ", session);
         setModalOpen(true);
         setFormType("signup");
       }
+      
+      console.log("SESSION: ", session);
     
   }, [session]);
 
