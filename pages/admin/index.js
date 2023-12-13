@@ -42,6 +42,7 @@ const Admin = () => {
     <>
       <Header pageTitle="Admin Page" />
       <div>
+       {session ?
         <h3 className={classes.welcome_header}>
           Welcome,{" "}
           <span className={classes.welcome_header_span}>
@@ -49,12 +50,17 @@ const Admin = () => {
           </span>
           <GiCrossedSwords />
         </h3>
+        :
+        <h3 className={classes.not_logged_in}>You are not logged in. Please log in to access features on this page.</h3>
+       }
       </div>
+      {session && (
       <div className={classes.button_div}>
+      
         <Button minWidth="10rem" margin="0 0.5 0 0rem" onClick={() => openModal("addFundraiser")}>
           <FaPlus /> Fundraiser
         </Button>
-        {session && (
+       
           <Button
             backgroundImage="var(--linear-gradient-red)"
             margin="0 0 0 0.5rem"
@@ -62,8 +68,9 @@ const Admin = () => {
           >
             Log Off
           </Button>
-        )}
+        
       </div>
+      )}
       <main className={classes.main}></main>
       {modalOpen && <FormModal closeModal={closeModal} formType={formType} />}
     </>

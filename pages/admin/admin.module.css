@@ -11,6 +11,11 @@
   margin-right: 0.5rem;
 }
 
+.not_logged_in {
+  color: white;
+  text-align: center;
+}
+
 .button_div {
   margin: auto;
   padding: 1rem;
