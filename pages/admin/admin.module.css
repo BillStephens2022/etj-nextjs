@@ -16,11 +16,40 @@
   text-align: center;
 }
 
-.button_div {
+.main_container {
   margin: auto;
   padding: 1rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+}
+
+.functions_header {
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+.table {
+  font-family: "Lato", sans-serif;
+  color: var(--primaryGray900);
+  font-weight: 900;
+  background-color: var(--primaryGray500);
+  padding: 1rem;
+  border: 0.5rem solid white;
+  border-radius: 0.5rem;
+}
+
+.table_row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table_data {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
   justify-content: center;
+  margin-right: 0.5rem;
 }
 
 .main {

@@ -3,6 +3,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import { FaPlus } from "react-icons/fa6";
 import { GiCrossedSwords } from "react-icons/gi";
+import { MdLogout } from "react-icons/md";
 import Header from "@/components/layout/header";
 import Button from "@/components/ui/Button";
 import FormModal from "@/components/forms/formModal";
@@ -41,7 +42,7 @@ const Admin = () => {
   return (
     <>
       <Header pageTitle="Admin Page" />
-      <div>
+      <div className={classes.welcome_div}>
        {session ?
         <h3 className={classes.welcome_header}>
           Welcome,{" "}
@@ -55,25 +56,53 @@ const Admin = () => {
        }
       </div>
       {session && (
-      <div className={classes.button_div}>
-      
-        <Button minWidth="10rem" margin="0 0.5 0 0rem" onClick={() => openModal("addFundraiser")}>
-          <FaPlus /> Fundraiser
-        </Button>
-        <Button
-            backgroundImage="var(--linear-gradient-red)"
-            margin="0 0 0 0.5rem"
-            onClick={() => openModal("signup")}
-          >
-            <FaPlus /> New Admin User
-          </Button>
-          <Button
-            backgroundImage="var(--linear-gradient-red)"
-            margin="0 0 0 0.5rem"
-            onClick={logoutHandler}
-          >
-            Log Off
-          </Button>
+      <div className={classes.main_container}>
+      <h2 className={classes.functions_header}>Admin Functions</h2>
+      <table className={classes.table}>
+            <thead>
+              {/* <tr>
+                <th>Admin Functions:</th>
+                <th>Buttons</th>
+              </tr> */}
+            </thead>
+            <tbody>
+              <tr className={classes.table_row}>
+                <td className={classes.table_data}>Add A New Fundraiser</td>
+                <td className={classes.table_data}>
+                  <Button
+                    margin="0 0.5 0 0rem"
+                    onClick={() => openModal("addFundraiser")}
+                  >
+                    <FaPlus />
+                  </Button>
+                </td>
+              </tr>
+              <tr className={classes.table_row}>
+                <td className={classes.table_data}>Add A New Admin User</td>
+                <td className={classes.table_data}>
+                  <Button
+                    backgroundImage="var(--linear-gradient-red)"
+                    margin="0 0 0 0.5rem"
+                    onClick={() => openModal("signup")}
+                  >
+                    <FaPlus />
+                  </Button>
+                </td>
+              </tr>
+              <tr className={classes.table_row}>
+                <td className={classes.table_data}>Logout</td>
+                <td className={classes.table_data}>
+                  <Button
+                    backgroundImage="var(--linear-gradient-red)"
+                    margin="0 0 0 0.5rem"
+                    onClick={logoutHandler}
+                  >
+                   <MdLogout />
+                  </Button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         
       </div>
       )}
