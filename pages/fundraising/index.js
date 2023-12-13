@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import Header from "@/components/layout/header";
-import classes from "@/pages/fundraising/fundraising.module.css";
 import FundraiserCard from "@/components/layout/fundraiserCard";
 import Button from "@/components/ui/Button";
+import Loader from "@/components/layout/loader";
+import classes from "@/pages/fundraising/fundraising.module.css";
 
 const Fundraising = ({ props }) => {
   const { data: session } = useSession();
@@ -32,7 +33,10 @@ const Fundraising = ({ props }) => {
   }
 
   if (!data) {
-    return <p>Loading...</p>;
+    return <>
+      <Header />
+      <Loader />
+    </>
   }
 
   return (
