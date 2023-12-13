@@ -7,18 +7,18 @@
     padding: 1rem;
     font-size: 1rem;
     width: 33.33%;
-    border: 2px solid seagreen;
+    border: 2px solid var(--primaryGray900);
     text-align: center;
     background-color: whitesmoke;
-    color: seagreen;
+    color: var(--primaryRed500);
   }
   
   .form_header {
     font-size: 2rem;
     text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    color: coral;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
   }
   
   .label {
@@ -31,6 +31,11 @@
       padding: 0.25rem 0.5rem;
       border-radius: 5px;
       margin: 0.5rem;
+      border: 1px solid black;
+  }
+
+  .input:focus {
+    border: 3px solid black;
   }
   
   .successMessage_p {
