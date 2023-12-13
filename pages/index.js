@@ -37,7 +37,31 @@ const Home = () => {
           Donate
         </Button>
       </div>
-      <main className={classes.main}></main>
+      <main className={classes.main}>
+        <h3 className={classes.main_heading}>
+          Martial arts and mentoring for our kids who need it most.
+        </h3>
+      
+        <div className={classes.main_container}>
+          <div className={classes.row}>
+            <div className={classes.box}>
+              <h4 className={classes.box_header}>About Us</h4>
+              <p className={classes.box_p}>We&#39;re a 501c3 - EIN: 83-2454419</p>
+            </div>
+            <div className={classes.box}>
+              <h4 className={classes.box_header}>Fundraising</h4>
+            </div>
+          </div>
+          <div className={classes.row}>
+            <div className={classes.box}>
+              <h4 className={classes.box_header}>Events</h4>
+            </div>
+            <div className={classes.box}>
+              <h4 className={classes.box_header}>Get Involved</h4>
+            </div>
+          </div>
+        </div>
+      </main>
     </>
   );
 };

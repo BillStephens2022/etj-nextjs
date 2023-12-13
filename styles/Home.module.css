@@ -1,12 +1,12 @@
 .main {
   position: relative;
   padding-top: 1rem;
+  padding-bottom: 1.5rem;
   background-color: black;
   text-align: center;
-  min-height: 73vh;
-  width: 100%; 
-  height: 1500px; /* Set the height of the container */
-  background-image: url('../public/images/kendo.png'); /* Replace 'path_to_your_image.jpg' with your image path */
+  width: 100%;
+  min-height: 700px; /* Set the height of the container */
+  background-image: url("../public/images/kendo.png"); /* Replace 'path_to_your_image.jpg' with your image path */
   background-size: cover;
   background-position: center;
 }
@@ -21,8 +21,7 @@
   height: 100%;
   background-color: yellow; /* Change color as needed */
   mix-blend-mode: multiply;
-  opacity: .7; /* Adjust opacity */
- 
+  opacity: 0.7; /* Adjust opacity */
   background-color: rgba(0, 0, 0, 1); /* Change color and opacity here */
   /* Adjust the color and opacity by changing the rgba values */
 }
@@ -48,4 +47,60 @@
   text-align: center;
   padding-top: 1rem;
   background-color: black;
+}
+
+.main_heading {
+  position: relative;
+  font-size: 2rem;
+  color: transparent;
+  text-shadow: 6px 6px 1px white;
+  z-index: 999;
+  margin-top: 0;
+}
+
+.main_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.box {
+  flex: 1;
+  min-height: 300px;
+  min-width: 300px;
+  max-width: 500px;
+  margin: 1rem;
+  border: 2px solid var(--primaryGray900);
+  background-color: rgba(36, 37, 36, 0.4);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 3px 2px 8px var(--primaryRed500);
+}
+
+.box_header {
+  font-family: "Aclonica", sans-serif;
+  font-size: 1.5rem;
+  color: var(--primaryGray300);
+}
+
+.box_p {
+  color: var(--primaryGray500);
+  font-size: 1rem;
+  font-weight: 700;
+  text-wrap: wrap;
 }

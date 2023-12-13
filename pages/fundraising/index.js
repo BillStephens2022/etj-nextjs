@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import { getFundraisers } from "@/lib/api";
 import useSWR from "swr";
 import Header from "@/components/layout/header";
 import FundraiserCard from "@/components/layout/fundraiserCard";
@@ -46,7 +47,12 @@ const Fundraising = ({ props }) => {
       <div className={classes.main}>
       <Button backgroundImage="var(--linear-gradient-red" href="https://www.mightycause.com/story/Iasxuf">Donate</Button>
         <div className={classes.fundraisers_div}>
-          {  <FundraiserCard fundraiser={fundraisers[0]} />}
+          {/* {fundraisers.map((fundraiser) => <FundraiserCard fundraiser={fundraiser} />)} */}
+          {fundraisers.length > 0 ? (
+            <FundraiserCard fundraiser={fundraisers[0]} />
+          ) : (
+            <p>No fundraisers available</p> // Handle the case when there are no fundraisers
+          )}
         </div>
       </div>
     </>
