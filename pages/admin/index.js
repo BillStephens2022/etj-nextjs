@@ -43,22 +43,25 @@ const Admin = () => {
     <>
       <Header pageTitle="Admin Page" />
       <div className={classes.welcome_div}>
-       {session ?
-        <h3 className={classes.welcome_header}>
-          Welcome,{" "}
-          <span className={classes.welcome_header_span}>
-           {session?.user.username}
-          </span>
-          <GiCrossedSwords />
-        </h3>
-        :
-        <h3 className={classes.not_logged_in}>You are not logged in. Please log in to access features on this page.</h3>
-       }
+        {session ? (
+          <h3 className={classes.welcome_header}>
+            Welcome,{" "}
+            <span className={classes.welcome_header_span}>
+              {session?.user.username}
+            </span>
+            <GiCrossedSwords />
+          </h3>
+        ) : (
+          <h3 className={classes.not_logged_in}>
+            You are not logged in. Please log in to access features on this
+            page.
+          </h3>
+        )}
       </div>
       {session && (
-      <div className={classes.main_container}>
-      <h2 className={classes.functions_header}>Admin Functions</h2>
-      <table className={classes.table}>
+        <div className={classes.main_container}>
+          <h2 className={classes.functions_header}>Admin Functions</h2>
+          <table className={classes.table}>
             <thead>
               {/* <tr>
                 <th>Admin Functions:</th>
@@ -69,10 +72,7 @@ const Admin = () => {
               <tr className={classes.table_row}>
                 <td className={classes.table_data}>Add A New Fundraiser</td>
                 <td className={classes.table_data}>
-                  <Button
-                    margin="0 0.5 0 0rem"
-                    onClick={() => openModal("addFundraiser")}
-                  >
+                  <Button onClick={() => openModal("addFundraiser")}>
                     <FaPlus />
                   </Button>
                 </td>
@@ -82,7 +82,6 @@ const Admin = () => {
                 <td className={classes.table_data}>
                   <Button
                     backgroundImage="var(--linear-gradient-red)"
-                    margin="0 0 0 0.5rem"
                     onClick={() => openModal("signup")}
                   >
                     <FaPlus />
@@ -94,17 +93,15 @@ const Admin = () => {
                 <td className={classes.table_data}>
                   <Button
                     backgroundImage="var(--linear-gradient-red)"
-                    margin="0 0 0 0.5rem"
                     onClick={logoutHandler}
                   >
-                   <MdLogout />
+                    <MdLogout />
                   </Button>
                 </td>
               </tr>
             </tbody>
           </table>
-        
-      </div>
+        </div>
       )}
       <main className={classes.main}></main>
       {modalOpen && <FormModal closeModal={closeModal} formType={formType} />}
