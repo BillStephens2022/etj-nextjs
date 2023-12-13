@@ -1,21 +1,51 @@
 .main {
+  position: relative;
   padding-top: 1rem;
   background-color: black;
   text-align: center;
   min-height: 73vh;
-  width: 100%; /* Set the width of the container */
-  height: 300px; /* Set the height of the container */
-  background-image: url('../public//images/background.jpg'); /* Replace 'path_to_your_image.jpg' with your image path */
-  background-size: cover; /* Ensure the image covers the entire container */
-  background-position: center; /* Center the image within the container */
+  width: 100%; 
+  height: 1500px; /* Set the height of the container */
+  background-image: url('../public/images/kendo.png'); /* Replace 'path_to_your_image.jpg' with your image path */
+  background-size: cover;
+  background-position: center;
+}
+
+/* CSS for the colored filter */
+.main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: yellow; /* Change color as needed */
+  mix-blend-mode: multiply;
+  opacity: .7; /* Adjust opacity */
+ 
+  background-color: rgba(0, 0, 0, 1); /* Change color and opacity here */
+  /* Adjust the color and opacity by changing the rgba values */
 }
 
 .logo_container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 200px;
   display: flex;
   justify-content: center;
 }
 
 .logo {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  margin-bottom: 2rem;
+}
+
+.donate_button_div {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-top: 1rem;
+  background-color: black;
 }

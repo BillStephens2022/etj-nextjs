@@ -14,28 +14,30 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Button
-        margin="1rem"
-        backgroundImage="var(--linear-gradient-red)"
-        href="https://www.mightycause.com/story/Iasxuf"
-      >
-        Donate
-      </Button>
+
+      <div className={classes.logo_container}>
+        <Image
+          src={logo}
+          alt="logo"
+          width={300}
+          height={208}
+          placeholder="blur"
+          style={{ objectFit: "contain" }}
+          className={classes.logo}
+        />
+      </div>
       <Header>ETJ</Header>
       {/* <div className={classes.background_image_container}></div> */}
-      <main className={classes.main}>
-        <div className={classes.logo_container}>
-          <Image
-            src={logo}
-            alt="logo"
-            width={300}
-            height={208}
-            placeholder="blur"
-            style={{ objectFit: "contain" }}
-            className={classes.logo}
-          />
-        </div>
-      </main>
+      <div className={classes.donate_button_div}>
+        <Button
+          backgroundImage="var(--linear-gradient-red)"
+          href="https://www.mightycause.com/story/Iasxuf"
+          className={classes.donate_button}
+        >
+          Donate
+        </Button>
+      </div>
+      <main className={classes.main}></main>
     </>
   );
 };

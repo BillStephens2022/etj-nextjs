@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import classes from "@/components/ui/button.module.css";
 
-const Button = ({ children, onClick, type, href, backgroundColor = "", backgroundImage = "linear-gradient(135deg, steelblue 0%, darkslateblue 100%)", color = "white", icon, margin = "0", minWidth = "auto", }) => {
+const Button = ({ children, onClick, type, href, backgroundColor = "", backgroundImage = "linear-gradient(135deg, steelblue 0%, darkslateblue 100%)", color = "white", icon, margin = "0", minWidth = "auto", className="", style = {}, ...restProps }) => {
   const router = useRouter();
 
   const buttonStyle = {
@@ -10,7 +10,11 @@ const Button = ({ children, onClick, type, href, backgroundColor = "", backgroun
     color: color,
     margin: margin,
     width: minWidth,
+    ...style,
   };
+
+  const combinedClassName = `${classes.custom_btn} ${className}`.trim();
+
 
   const handleClick = () => {
     if (href) {
@@ -22,7 +26,7 @@ const Button = ({ children, onClick, type, href, backgroundColor = "", backgroun
   };
 
   return (
-    <button className={classes.custom_btn} onClick={handleClick} type={type} style={buttonStyle}>{children}</button>
+    <button className={combinedClassName} onClick={handleClick} type={type} style={buttonStyle} {...restProps}>{children}</button>
   );
 }
 

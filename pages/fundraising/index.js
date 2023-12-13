@@ -46,9 +46,7 @@ const Fundraising = ({ props }) => {
       <div className={classes.main}>
       <Button backgroundImage="var(--linear-gradient-red" href="https://www.mightycause.com/story/Iasxuf">Donate</Button>
         <div className={classes.fundraisers_div}>
-          {fundraisers.map((fundraiser) => (
-            <FundraiserCard fundraiser={fundraiser} />
-          ))}
+          {  <FundraiserCard fundraiser={fundraisers[0]} />}
         </div>
       </div>
     </>

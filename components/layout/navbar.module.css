@@ -3,7 +3,7 @@
   }
   
   .nav_button {
-    background: var(--primaryGray500);
+    background: var(--primaryRed500);
     height: 4.5rem;
     width: 4.5rem;
     position: fixed;
