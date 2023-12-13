@@ -11,8 +11,8 @@ const FormModal = ({ formType, closeModal }) => {
 
   switch (formType) {
     case "signup":
-      formComponent = <div><LoginForm closeModal={closeModal} /></div>;
-      formTitle = "Log In"
+      formComponent = <div><SignupForm closeModal={closeModal} /></div>;
+      formTitle = "Sign Up"
       break;
     case "login":
       formComponent = <LoginForm closeModal={closeModal} />;

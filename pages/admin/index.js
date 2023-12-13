@@ -60,7 +60,13 @@ const Admin = () => {
         <Button minWidth="10rem" margin="0 0.5 0 0rem" onClick={() => openModal("addFundraiser")}>
           <FaPlus /> Fundraiser
         </Button>
-       
+        <Button
+            backgroundImage="var(--linear-gradient-red)"
+            margin="0 0 0 0.5rem"
+            onClick={() => openModal("signup")}
+          >
+            <FaPlus /> New Admin User
+          </Button>
           <Button
             backgroundImage="var(--linear-gradient-red)"
             margin="0 0 0 0.5rem"
