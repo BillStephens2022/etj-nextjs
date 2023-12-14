@@ -125,6 +125,23 @@
   justify-content: space-between;
 }
 
+@media (max-width: 767px) {
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 18.5rem;
+    max-width: 18.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 17rem;
+    max-width: 17rem;
+  }
+}
 
 /* @media only screen and (max-width: 2000px) {
   .card_button {
@@ -172,20 +189,7 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
-  .card {
-    min-width: 17rem;
-    max-width: 17rem;
-  }
-  .card_button {
-    padding: 0.5rem;
-    width: 47%;
-    height: 3rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
-}
+
 
 @media only screen and (max-width: 500px) {
   .card {

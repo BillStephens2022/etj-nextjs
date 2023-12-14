@@ -17,6 +17,8 @@
 
 .page_heading {
   font-size: 1.75rem;
+  font-family: "Aclonica", sans-serif;
+  font-style: italic;
   color: var(--primaryGray900);
   text-align: center;
   margin: 0;
