@@ -1,67 +1,74 @@
 .about_container {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    background-image: url("../../public/images/background.jpg");
-    background-size: cover;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-image: url("../../public/images/background.jpg");
+  background-size: cover;
 }
-.about_item { 
-    flex: 1;
-    border: 5px solid var(--primaryGray900);  
-  
+.about_item {
+  flex: 1;
+  border: 5px solid var(--primaryGray900);
 }
 .about_item:nth-child(1) {
-    border-left-width: 10px;
+  border-left-width: 10px;
 }
 
 .about_item:nth-child(2) {
-    border-right-width: 10px;
+  border-right-width: 10px;
 }
 .about_title {
-    font-family: "Aclonica", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 900;
-    font-style: italic;
-    margin: 0;
-    padding: 0.5rem;
-    text-align: center;
-   
-    background-color: var(--primaryGray900);
-    color: white;
-    
+  font-family: "Aclonica", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  font-style: italic;
+  margin: 0;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: var(--primaryGray900);
+  color: white;
 }
 
 .about_p {
-    font-size: 1.25rem;
-    padding: 1rem 2rem;
-    line-height: 1.75;
-    color: white;
+  margin-top: 0;
+  font-size: 1.05rem;
+  padding: 1rem 2rem;
+  line-height: 1.75;
+  color: white;
 }
 
 .main {
-    min-height: 74vh;
-    background-color: black;
+  min-height: 74vh;
+  background-color: black;
 }
 
 .link {
-    font-family: "Aclonica";
-    color: steelblue;
+  font-family: "Aclonica";
+  color: steelblue;
+}
+
+.member_info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.member_summary {
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  flex: none;
+  height: fit-content;
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+.member_img {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--primaryGray900);
 
 }
 
-.chris_img_div {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.chris_img {
-    border-radius: 10px;
-    padding: 10px;
-    background-color: var(--primaryGray900);
-}
-
-.name_heading {
+.member_name_heading {
   font-family: "Aclonica", sans-serif;
   color: var(--primaryGray300);
   font-size: 1.75rem;
@@ -69,15 +76,40 @@
   margin: 0.75rem auto;
 }
 
-.job_title {
-    color: white;
-    font-size: 1.25rem;
-    text-align: center;
-    margin: 0.75rem auto;
+.member_job_title {
+  color: white;
+  font-size: 1.25rem;
+  text-align: center;
+  margin: 0.75rem auto;
 }
 
-@media (min-width: 768px) and (max-width: 1024px)  {
-   .about_container {
+.member_details {
+    flex: 1; /* Allow it to expand and take remaining space */
+    display: flex;
     flex-direction: column;
-   }
+    align-items: flex-start; 
+    color: white;
+    line-height: 1.5;
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+    font-size: 1.05rem;
+}
+  
+ 
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .about_container {
+    flex-direction: column;
   }
+
+  .member_info {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .member_info {
+    flex-direction: column;
+    align-items: center;
+  }
+}

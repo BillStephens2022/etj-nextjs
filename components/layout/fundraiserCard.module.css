@@ -8,14 +8,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 60vw;
-  max-width: 95vw;
+  width: 25rem;
   margin: 0.6rem;
   transition: all 0.3s ease;
-}
-
-.card_inner_wrapper {
- 
 }
 
 .card:hover {
@@ -131,7 +126,7 @@
 }
 
 
-@media only screen and (max-width: 2000px) {
+/* @media only screen and (max-width: 2000px) {
   .card_button {
     padding: 0.5rem;
     width: 47%;
@@ -242,4 +237,4 @@
   .footer_icon {
     display: none;
   }
-}
+} */
