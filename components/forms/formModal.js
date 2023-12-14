@@ -1,5 +1,6 @@
 import SignupForm from "@/components/forms/signupForm";
 import LoginForm from "@/components/forms/loginForm";
+import ChangePasswordForm from "./changePasswordForm";
 import AddFundraiserForm from "@/components/forms/addFundraiserForm";
 import Button from "@/components/ui/Button";
 import classes from "@/components/forms/formModal.module.css";
@@ -18,6 +19,10 @@ const FormModal = ({ formType, closeModal }) => {
       formComponent = <LoginForm closeModal={closeModal} />;
       formTitle = "Log In"
       break;
+    case "changePassword":
+        formComponent = <ChangePasswordForm closeModal={closeModal} />;
+        formTitle = "Change Password"
+    break;  
     case "addFundraiser":
       formComponent = <AddFundraiserForm closeModal={closeModal} />;
       formTitle = "Add Fundraiser"

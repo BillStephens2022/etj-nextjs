@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import { FaPlus } from "react-icons/fa6";
+import { FaPlus, FaUserPlus } from "react-icons/fa6";
 import { GiCrossedSwords } from "react-icons/gi";
-import { MdLogout } from "react-icons/md";
+import { MdLogout, MdLockReset, MdOutlineAttachMoney } from "react-icons/md";
 import Header from "@/components/layout/header";
 import Button from "@/components/ui/Button";
 import FormModal from "@/components/forms/formModal";
@@ -73,7 +73,15 @@ const Admin = () => {
                 <td className={classes.table_data}>Add A New Fundraiser</td>
                 <td className={classes.table_data}>
                   <Button onClick={() => openModal("addFundraiser")}>
-                    <FaPlus />
+                    <MdOutlineAttachMoney />
+                  </Button>
+                </td>
+              </tr>
+              <tr className={classes.table_row}>
+                <td className={classes.table_data}>Change Password</td>
+                <td className={classes.table_data}>
+                  <Button onClick={() => openModal("changePassword")}>
+                    <MdLockReset />
                   </Button>
                 </td>
               </tr>
@@ -81,10 +89,9 @@ const Admin = () => {
                 <td className={classes.table_data}>Add A New Admin User</td>
                 <td className={classes.table_data}>
                   <Button
-                    backgroundImage="var(--linear-gradient-red)"
                     onClick={() => openModal("signup")}
                   >
-                    <FaPlus />
+                    <FaUserPlus />
                   </Button>
                 </td>
               </tr>
