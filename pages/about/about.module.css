@@ -3,11 +3,13 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    
+    background-image: url("../../public/images/background.jpg");
+    background-size: cover;
 }
 .about_nav_item { 
     flex: 1;
     border: 5px solid var(--primaryGray900);  
+  
 }
 .about_nav_item:nth-child(1) {
     border-left-width: 10px;
@@ -17,11 +19,14 @@
     border-right-width: 10px;
 }
 .about_title {
+    font-family: "Aclonica", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    font-style: italic;
     margin: 0;
     padding: 0.5rem;
     text-align: center;
-    font-size: 1.25rem;
-    font-weight: 900;
+   
     background-color: var(--primaryGray900);
     color: white;
     
@@ -37,4 +42,10 @@
 .main {
     min-height: 74vh;
     background-color: black;
+}
+
+.link {
+    font-family: "Aclonica";
+    color: steelblue;
+
 }

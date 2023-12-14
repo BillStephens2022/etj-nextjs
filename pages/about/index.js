@@ -1,7 +1,9 @@
+import Link from "next/link";
+import { FaRegHandPointRight } from "react-icons/fa";
 import Header from "@/components/layout/header";
 import Button from "@/components/ui/Button";
 import classes from "@/pages/about/about.module.css";
-import Link from "next/link";
+
 
 const About = () => {
   return (
@@ -15,8 +17,8 @@ const About = () => {
             Academy in Camden, NJ. This program provides free training in the
             very exclusive martial art of Kumdo (more commonly known as Kendo)
             to KIP&apos;s young Lanning Square Middle School students. This program
-            had been heralded in publications such as The Philadelphia Inquirer:&nbsp;&nbsp;&nbsp;
-              <Link href="https://www.philly.com/philly/news/new_jersey/its-called-the-golf-of-martial-arts-but-this-camden-school-is-making-kumdo-more-inclusive-20180331.html">It's Called the Golf of Martial Arts</Link>
+            had been heralded in publications such as The Philadelphia Inquirer. <br />See article here:&nbsp;&nbsp;<FaRegHandPointRight />&nbsp;&nbsp;&nbsp;
+              <Link className={classes.link} href="https://www.philly.com/philly/news/new_jersey/its-called-the-golf-of-martial-arts-but-this-camden-school-is-making-kumdo-more-inclusive-20180331.html">It&apos;s Called the Golf of Martial Arts</Link>
           
             
           </p>
