@@ -24,10 +24,17 @@
   padding-bottom: 1rem;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .swords {
+    display: none;
+  }
+}
 
 @media (max-width: 767px) {
   .header {
     padding-bottom: 0.75rem;
+    font-size: 4rem;
   }
   .swords {
     display: none;

@@ -130,14 +130,33 @@
   text-align: center;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .main_heading {
+    width: 70%;
+    margin: 0 auto 0.75rem auto;
+  }
+  .logo_container {
+    margin: 0.75rem auto 0 auto;
+    text-align: center;
+  }
+  .logo {
+    width: 70%;
+  }
+}
+
 @media (max-width: 767px) {
+  .main_heading {
+    width: 70%;
+    margin: 0 auto 0.75rem auto;
+    font-size: 1.5rem;
+    line-height: 1.75;
+  }
   .logo_container {
     display: block;
     position: relative;
     top: 0;
     left: 0;
     margin: 0.75rem auto 0 auto;
-    order: 2;
     text-align: center;
   }
   .logo {
