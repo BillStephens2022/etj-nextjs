@@ -21,12 +21,12 @@ const Home = () => {
           alt="logo"
           width={300}
           height={208}
-          placeholder="blur"
           style={{ objectFit: "contain" }}
+          placeholder="blur"
           className={classes.logo}
         />
       </div>
-      <Header>ETJ</Header>
+      <Header pageTitle="Enter the Johnsons">ETJ</Header>
       {/* <div className={classes.background_image_container}></div> */}
       <main className={classes.main}>
         <h3 className={classes.main_heading}>

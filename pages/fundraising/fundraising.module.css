@@ -5,14 +5,20 @@
   color: seagreen;
   font-weight: 300;
   background-color: black;
-  
 }
 
 .fundraisers_div {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding: 1rem;
+  }
 }

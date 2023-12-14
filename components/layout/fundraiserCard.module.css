@@ -1,5 +1,4 @@
 .card {
- 
   border-radius: 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.125);
   padding: 2rem 2rem 0.5rem 2rem;
@@ -9,24 +8,14 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-width: 70vh;
-  max-width: 90vh;
+  width: 60vw;
+  max-width: 95vw;
   margin: 0.6rem;
   transition: all 0.3s ease;
 }
 
 .card_inner_wrapper {
-  width: 100%;
-  height: 100%;
-}
-
-.banner_image {
-  background-size: cover;
-  background-position: center;
-  height: 400px;
-  min-width: 50%;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.255);
+ 
 }
 
 .card:hover {

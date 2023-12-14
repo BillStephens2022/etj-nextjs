@@ -6,12 +6,18 @@ import IconButton from "../ui/iconButton";
 import DeleteConfirmation from "../notifications/deleteConfirmation";
 import { getFundraisers, deleteFundraiser, editFundraiser } from "@/lib/api";
 import classes from "@/components/layout/fundraiserCard.module.css";
+import Image from "next/image";
 
-const FundraiserCard = ({ fundraisers, fundraiser, session, setFundraisers }) => {
+const FundraiserCard = ({
+  fundraisers,
+  fundraiser,
+  session,
+  setFundraisers,
+}) => {
   const [showConfirmation, setShowConfirmation] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    formType: "",  // "addFundraiser" - will be pre-populated and editable with existing fundraiser data
+    formType: "", // "addFundraiser" - will be pre-populated and editable with existing fundraiser data
     fundraiserData: null, // For storing fundraiser data in case of editing
   });
 
@@ -43,11 +49,16 @@ const FundraiserCard = ({ fundraisers, fundraiser, session, setFundraisers }) =>
 
   const openModal = (formType, selectedFundraiser) => {
     setModalOpen(true);
-    console.log("formType: ", formType, " selectedFundraiser: ", selectedFundraiser);
-    setFormData(prevFormData => ({
+    console.log(
+      "formType: ",
+      formType,
+      " selectedFundraiser: ",
+      selectedFundraiser
+    );
+    setFormData((prevFormData) => ({
       ...prevFormData,
       formType: formType,
-      fundraiserData: selectedFundraiser
+      fundraiserData: selectedFundraiser,
     }));
     console.log("FORM DATA: ", formData);
   };
@@ -55,16 +66,22 @@ const FundraiserCard = ({ fundraisers, fundraiser, session, setFundraisers }) =>
   const closeModal = () => {
     setModalOpen(false);
     setFormData({ formType: "", fundraiserData: null }); // reset formData state when closing the modal
-    
   };
 
   const handleEditModal = async (event, fundraiserId) => {
     event.preventDefault();
-    const selectedFundraiser = fundraisers.find((fundraiser) => fundraiser._id === fundraiserId);
+    const selectedFundraiser = fundraisers.find(
+      (fundraiser) => fundraiser._id === fundraiserId
+    );
     if (selectedFundraiser) {
       openModal("addFundraiser", selectedFundraiser);
     }
-  }
+  };
+
+  const imageStyle = {
+    borderRadius: "0.5rem",
+    objectFit: "cover",
+  };
 
   return (
     <>
@@ -72,9 +89,16 @@ const FundraiserCard = ({ fundraisers, fundraiser, session, setFundraisers }) =>
         <div className={classes.card_inner_wrapper}>
           <div
             className={classes.banner_image}
-            style={{ backgroundImage: `url(${fundraiser.imageLink})` }}
+            // style={{ backgroundImage: `url(${fundraiser.imageLink})` }}
           >
-            {" "}
+            <Image
+              src={fundraiser.imageLink}
+              width={250}
+              height={300}
+              quality={100}
+              style={imageStyle}
+              alt="Fundraiser Image"
+            />{" "}
           </div>
           <div className={classes.card_header}>
             <h3 className={classes.fundraiser_title}>{fundraiser.title}</h3>
@@ -122,7 +146,11 @@ const FundraiserCard = ({ fundraisers, fundraiser, session, setFundraisers }) =>
         </div>
       </div>
       {modalOpen && (
-        <FormModal closeModal={closeModal} formType={formData.formType} selectedFundraiser={formData.fundraiserData}/>
+        <FormModal
+          closeModal={closeModal}
+          formType={formData.formType}
+          selectedFundraiser={formData.fundraiserData}
+        />
       )}
     </>
   );

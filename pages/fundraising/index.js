@@ -57,6 +57,7 @@ const Fundraising = ({ props }) => {
         <div className={classes.fundraisers_div}>
           {fundraisers.map((fundraiser) => (
             <FundraiserCard
+              key={fundraiser._id}
               fundraisers={fundraisers}
               fundraiser={fundraiser}
               session={session}
