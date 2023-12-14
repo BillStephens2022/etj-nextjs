@@ -1,0 +1,22 @@
+.delete_notification {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .delete_notification p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.25rem;
+  }
+  
+  .delete_notification button {
+    margin: 0.15rem;
+    border: none;
+    color: white;
+    background-color: black;
+    padding: 0.3rem;
+    border-radius: 5px;
+  }

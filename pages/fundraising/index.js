@@ -47,12 +47,12 @@ const Fundraising = ({ props }) => {
       <div className={classes.main}>
       <Button backgroundImage="var(--linear-gradient-red" href="https://www.mightycause.com/story/Iasxuf">Donate</Button>
         <div className={classes.fundraisers_div}>
-          {/* {fundraisers.map((fundraiser) => <FundraiserCard fundraiser={fundraiser} />)} */}
-          {fundraisers.length > 0 ? (
-            <FundraiserCard fundraiser={fundraisers[0]} session={session} />
+          {fundraisers.map((fundraiser) => <FundraiserCard fundraiser={fundraiser} session={session} setFundraisers={setFundraisers}/>)}
+          {/* {fundraisers.length > 0 ? (
+            <FundraiserCard fundraiser={fundraisers[0]} session={session} setFundraisers={setFundraisers} />
           ) : (
             <p>No fundraisers available</p> // Handle the case when there are no fundraisers
-          )}
+          )} */}
         </div>
       </div>
     </>
