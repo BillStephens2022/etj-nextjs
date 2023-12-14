@@ -130,3 +130,17 @@
   text-align: center;
 }
 
+@media (max-width: 767px) {
+  .logo_container {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0.75rem auto 0 auto;
+    order: 2;
+    text-align: center;
+  }
+  .logo {
+    width: 70%;
+  }
+}
