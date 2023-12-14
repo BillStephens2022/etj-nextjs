@@ -49,7 +49,7 @@ const Fundraising = ({ props }) => {
         <div className={classes.fundraisers_div}>
           {/* {fundraisers.map((fundraiser) => <FundraiserCard fundraiser={fundraiser} />)} */}
           {fundraisers.length > 0 ? (
-            <FundraiserCard fundraiser={fundraisers[0]} />
+            <FundraiserCard fundraiser={fundraisers[0]} session={session} />
           ) : (
             <p>No fundraisers available</p> // Handle the case when there are no fundraisers
           )}

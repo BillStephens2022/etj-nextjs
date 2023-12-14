@@ -21,7 +21,7 @@ const Admin = () => {
     if (!session) {
       console.log("SESSION: ", session);
       setModalOpen(true);
-      setFormType("signup");
+      setFormType("login");
     }
   }, [session]);
 
