@@ -1,3 +1,39 @@
+.about_nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+}
+.about_nav_item { 
+    flex: 1;
+    border: 5px solid var(--primaryGray900);  
+}
+.about_nav_item:nth-child(1) {
+    border-left-width: 10px;
+}
+
+.about_nav_item:nth-child(2) {
+    border-right-width: 10px;
+}
+.about_title {
+    margin: 0;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 900;
+    background-color: var(--primaryGray900);
+    color: white;
+    
+}
+
+.about_p {
+    font-size: 1.25rem;
+    padding: 1rem 2rem;
+    line-height: 1.75;
+    color: white;
+}
+
 .main {
     min-height: 74vh;
     background-color: black;

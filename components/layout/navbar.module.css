@@ -134,7 +134,7 @@
   .nav_link:hover,
   .nav_link:active {
     background-position: 100%;
-    color: seagreen;
+    color: var(--primaryRed500);
     transform: translateX(1rem);
   }
   
