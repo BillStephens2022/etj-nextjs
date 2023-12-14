@@ -17,6 +17,7 @@ const Fundraising = ({ props }) => {
     { refreshInterval: 1000 }
   );
 
+
   useEffect(() => {
     if (error) {
       console.error("Error fetching fundraisers:", error);
@@ -34,20 +35,34 @@ const Fundraising = ({ props }) => {
   }
 
   if (!data) {
-    return <>
-      <Header />
-      <Loader />
-    </>
+    return (
+      <>
+        <Header />
+        <Loader />
+      </>
+    );
   }
 
   return (
     <>
       <Header pageTitle="Fundraising"></Header>
-      
+
       <div className={classes.main}>
-      <Button backgroundImage="var(--linear-gradient-red" href="https://www.mightycause.com/story/Iasxuf">Donate</Button>
+        <Button
+          backgroundImage="var(--linear-gradient-red"
+          href="https://www.mightycause.com/story/Iasxuf"
+        >
+          Donate
+        </Button>
         <div className={classes.fundraisers_div}>
-          {fundraisers.map((fundraiser) => <FundraiserCard fundraiser={fundraiser} session={session} setFundraisers={setFundraisers}/>)}
+          {fundraisers.map((fundraiser) => (
+            <FundraiserCard
+              fundraisers={fundraisers}
+              fundraiser={fundraiser}
+              session={session}
+              setFundraisers={setFundraisers}
+            />
+          ))}
           {/* {fundraisers.length > 0 ? (
             <FundraiserCard fundraiser={fundraisers[0]} session={session} setFundraisers={setFundraisers} />
           ) : (

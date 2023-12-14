@@ -5,7 +5,7 @@ import AddFundraiserForm from "@/components/forms/addFundraiserForm";
 import Button from "@/components/ui/Button";
 import classes from "@/components/forms/formModal.module.css";
 
-const FormModal = ({ formType, closeModal }) => {
+const FormModal = ({ formType, closeModal, selectedFundraiser }) => {
   // Render different forms based on formType prop
   let formComponent;
   let formTitle;
@@ -24,8 +24,9 @@ const FormModal = ({ formType, closeModal }) => {
         formTitle = "Change Password"
     break;  
     case "addFundraiser":
-      formComponent = <AddFundraiserForm closeModal={closeModal} />;
-      formTitle = "Add Fundraiser"
+      console.log("Switch statement: selectedFundraiser");
+      formComponent = <AddFundraiserForm closeModal={closeModal} selectedFundraiser={selectedFundraiser} />;
+      formTitle = selectedFundraiser ? "Edit Fundraiser" : "Add Fundraiser"
       break;
     default:
       formComponent = null;

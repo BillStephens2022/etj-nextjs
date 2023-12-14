@@ -1,9 +1,11 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { CldUploadWidget } from "next-cloudinary";
-import "react-datepicker/dist/react-datepicker.css";
+import { editFundraiser, createFundraiser } from "@/lib/api";
 import Button from "@/components/ui/Button";
 import classes from "@/components/forms/addFundraiser.module.css";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 const initialFormData = {
   title: "",
@@ -14,25 +16,23 @@ const initialFormData = {
 
 
 
-const createFundraiser = async (formData) => {
-  const response = await fetch("/api/fundraiser", {
-    method: "POST",
-    body: JSON.stringify(formData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await response.json();
-  console.log("Fundraiser created successfully: ", data);
-  if (!response.ok) {
-    throw new Error(data.message || "Something went wrong!");
-  }
-  return data;
-};
 
-const AddFundRaiserForm = ({ closeModal }) => {
+
+const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
   const [formData, setFormData] = useState(initialFormData);
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+
+  useEffect(() => {
+    if (selectedFundraiser) {
+      // Populate form fields with selectedFundraiser data if available
+      setFormData({
+        title: selectedFundraiser.title || "",
+        description: selectedFundraiser.description || "",
+        imageLink: selectedFundraiser.imageLink || "", // Leave imageLink empty for user input
+        fundraiserDate: selectedFundraiser.fundraiserDate || "",
+      });
+    }
+  }, [selectedFundraiser]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -62,12 +62,19 @@ const AddFundRaiserForm = ({ closeModal }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("form submitted: ", formData);
-    await createFundraiser(formData);
+    if (selectedFundraiser) {
+      // Call editFundraiser if a selectedFundraiser was passed into the modal (this would only occur if user chose to edit an exising episode)
+      await editFundraiser(selectedFundraiser._id, formData);
+    } else {
+      // Call createFundraiser if no selectedFundraiser is available
+      await createFundraiser(formData);
+    }
+  
     closeModal();
   };
 
   return (
-    <Fragment>
+    <>
       <div className={classes.form_container}>
         <form className={classes.form} onSubmit={handleSubmit}>
           <div className={classes.form_group}>
@@ -161,7 +168,7 @@ const AddFundRaiserForm = ({ closeModal }) => {
           </div>
         </form>
       </div>
-    </Fragment>
+    </>
   );
 };
 
