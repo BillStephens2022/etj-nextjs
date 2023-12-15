@@ -3,10 +3,23 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background-image: black;
+  /* background-image: black; */
   /* background-image: url("../../public/images/background.jpg"); */
-  background-size: cover;
+  /* background-size: cover; */
 }
+
+.image_class_div {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: var(--primaryRed500);
+}
+
+.image_class {
+  width: 90vw;
+}
+
 .about_item {
   flex: 1;
   border: 5px solid var(--primaryGray900);
@@ -66,7 +79,6 @@
   border-radius: 10px;
   padding: 10px;
   background-color: var(--primaryGray900);
-
 }
 
 .member_name_heading {
@@ -85,23 +97,26 @@
 }
 
 .member_details {
-    flex: 1; /* Allow it to expand and take remaining space */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    color: white;
-    line-height: 1.5;
-    padding-left: 0.5rem;
-    padding-right: 1rem;
-    font-size: 1.05rem;
+  flex: 1; /* Allow it to expand and take remaining space */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  line-height: 1.5;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+  font-size: 1.05rem;
 }
-  
- 
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .main {
     min-height: 0;
   }
+
+  .class_image {
+    min-width: 60%;
+  }
+  
   .about_container {
     flex-direction: column;
   }
@@ -125,9 +140,16 @@
 }
 
 @media (max-width: 767px) {
-    .main {
-       min-height: 0;
-    }
+  .main {
+    min-height: 0;
+  }
+
+  .class_image {
+    min-width: 85vw; /* Set the width to 90% for smaller screens (phones) */
+    height: auto; /* Maintain aspect ratio */
+    margin: 1rem auto; /* Adjust margin as needed */
+  }
+
   .member_info {
     flex-direction: column;
     align-items: center;
