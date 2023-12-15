@@ -99,12 +99,28 @@
  
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .main {
+    min-height: 0;
+  }
   .about_container {
     flex-direction: column;
   }
 
   .member_info {
     flex-direction: column;
+  }
+
+  .member_summary {
+    margin: auto;
+    margin-top: 1rem;
+  }
+
+  .about_item:nth-child(1) {
+    border-right: 10px solid var(--primaryGray900);
+  }
+
+  .about_item:nth-child(2) {
+    border-left: 10px solid var(--primaryGray900);
   }
 }
 
