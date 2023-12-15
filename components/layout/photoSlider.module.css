@@ -1,0 +1,8 @@
+.slide {
+    margin: auto 0.5rem;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    justify-self: center;
+}

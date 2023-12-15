@@ -8,6 +8,10 @@
   /* background-size: cover; */
 }
 
+.slider_div {
+  max-height: 380px;
+}
+
 .image_class_div {
   position: relative;
   display: flex;

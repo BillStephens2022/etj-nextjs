@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaRegHandPointRight } from "react-icons/fa";
 import Header from "@/components/layout/header";
-import Button from "@/components/ui/Button";
+import PhotoSlider from "@/components/layout/photoSlider";
 import chris from "@/public/images/chris.jpg";
 import hkphooey from "@/public/images/hkphooey.png";
 import panda from "@/public/images/panda.png";
@@ -10,26 +10,31 @@ import class1 from "@/public/images/class1.jpg";
 import classes from "@/pages/about/about.module.css";
 
 const About = () => {
-  const classImageStyle = {
-    borderRadius: "0.5rem",
-    border: "5px solid var(--primaryGray900)",
-    objectFit: "contain",
-    width: "40vw",
-    height: "100%",
-    margin: "1rem"
-  };
+  // const classImageStyle = {
+  //   borderRadius: "0.5rem",
+  //   border: "5px solid var(--primaryGray900)",
+  //   objectFit: "contain",
+  //   width: "40vw",
+  //   height: "100%",
+  //   margin: "1rem",
+  // };
 
   return (
     <>
-      <Header pageTitle="About Us"></Header>
-      <div className={classes.image_class_div}>
+      <Header pageTitle="About Us"></Header> 
+      <div className={classes.slider_div}>
+
+      
+      <PhotoSlider />   
+      </div> 
+      {/* <div className={classes.image_class_div}>
         <Image
           src={class1}
           alt="martial arts class"
           style={classImageStyle}
           className={classes.class_image}
         />
-      </div>
+      </div> */}
       <div className={classes.about_container}>
         <div className={classes.about_item}>
           <h3 className={classes.about_title}>Our Story</h3>
