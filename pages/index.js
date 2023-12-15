@@ -69,6 +69,17 @@ const Home = () => {
             </div>
             <div className={classes.box}>
               <h4 className={classes.box_header}>Get Involved</h4>
+              <div className={classes.video_div}>
+                <iframe
+                  title="vimeo-player"
+                  src="https://player.vimeo.com/video/889119343?h=6dc8ed112c"
+                  width="90%"
+                  height="260"
+                  frameborder="0"
+                  allowfullscreen
+                  style={{ borderRadius: '20px', backgroundColor: "rgb(39, 36, 36, 0.2)", border: "2px solid white", padding: "1rem 1rem 1rem 1rem", marginTop: "0.5rem" }}
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
