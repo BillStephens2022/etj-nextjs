@@ -11,6 +11,8 @@ import class5 from "@/public/images/class5.png";
 import class6 from "@/public/images/class6.png";
 import class7 from "@/public/images/class7.png";
 import class8 from "@/public/images/class8.png";
+import class9 from "@/public/images/class9.png";
+import class10 from "@/public/images/class10.jpg";
 import classes from "@/components/layout/photoSlider.module.css";
 
 function SampleNextArrow(props) {
@@ -128,6 +130,16 @@ export default function PhotoSlider() {
       <div class={classes.slide}>
         <h3>
           <Image src={class8} width={350} height={300} />
+        </h3>
+      </div>
+      <div class={classes.slide}>
+        <h3>
+          <Image src={class9} width={300} height={300} />
+        </h3>
+      </div>
+      <div class={classes.slide}>
+        <h3>
+          <Image src={class10} width={300} height={300} />
         </h3>
       </div>
     </Slider>
