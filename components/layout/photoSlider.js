@@ -52,7 +52,7 @@ export default function PhotoSlider() {
     arrows: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
     variableWidth: true,
@@ -66,7 +66,7 @@ export default function PhotoSlider() {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
@@ -92,7 +92,7 @@ export default function PhotoSlider() {
     <Slider {...settings}>
       <div class={classes.slide}>
         <h3>
-          <Image src={class1} width={300} height={300} />
+          <Image src={class1} width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide}>
@@ -102,32 +102,32 @@ export default function PhotoSlider() {
       </div>
       <div class={classes.slide}>
         <h3>
-          <Image src={class3} width={300} height={300} />
+          <Image src={class3} width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide}>
         <h3>
-          <Image src={class4} width={315} height={300} />
+          <Image src={class4} width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide}>
         <h3>
-          <Image src={class5} width={300} height={300} />
+          <Image src={class5} width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide}>
         <h3>
-          <Image src={class6} width={300} height={300} />
+          <Image src={class6} width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide}>
         <h3>
-          <Image src={class7} width={300} height={300} />
+          <Image src={class7} width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide}>
         <h3>
-          <Image src={class8} width={300} height={300} />
+          <Image src={class8} width={350} height={300} />
         </h3>
       </div>
     </Slider>
