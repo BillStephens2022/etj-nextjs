@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
+import useSWR from "swr";
 import { FaUserPlus } from "react-icons/fa6";
 import { GiCrossedSwords } from "react-icons/gi";
 import { MdLogout, MdLockReset, MdOutlineAttachMoney } from "react-icons/md";
+import { formatDate } from "@/lib/util";
 import Header from "@/components/layout/header";
+import Loader from "@/components/layout/loader";
 import Button from "@/components/ui/Button";
 import FormModal from "@/components/forms/formModal";
 import classes from "@/pages/admin/admin.module.css";
@@ -14,15 +17,52 @@ const Admin = () => {
   const [modalOpen, setModalOpen] = useState(false);
   // state to set the form type to tell the modal which form to display
   const [formType, setFormType] = useState("");
+  const [messages, setMessages] = useState([]);
 
-  // Use useEffect to handle changes to the session object
+  const { data, error } = useSWR(
+    "/api/messages/",
+    (url) => fetch(url).then((res) => res.json()),
+    { refreshInterval: 1000 }
+  );
+
+    // Use useEffect to handle changes to the session object
+    useEffect(() => {
+      if (!session) {
+        console.log("SESSION: ", session);
+        setModalOpen(true);
+        setFormType("login");
+      }
+    }, [session]);
+
+
   useEffect(() => {
-    if (!session) {
-      console.log("SESSION: ", session);
-      setModalOpen(true);
-      setFormType("login");
+    if (error) {
+      console.error("Error fetching messages:", error);
     }
-  }, [session]);
+    if (data) {
+      console.log(data);
+      const sortedMessages = data.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
+      console.log(sortedMessages);
+      setMessages(sortedMessages);
+    }
+  }, [data, error]);
+
+  
+  
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!data) {
+    return (
+      <>
+        <Header />
+        <Loader />
+      </>
+    );
+  }
 
   const openModal = (type) => {
     console.log("Opening modal...");
@@ -109,7 +149,29 @@ const Admin = () => {
           </table>
         </div>
       )}
-      <main className={classes.main}></main>
+      <main className={classes.main}>
+      <h3 className={classes.message_center_header}>Message Center</h3>
+      <div className={classes.messages_div}>
+  <table className={classes.messages_table}>
+    <thead>
+      <tr>
+        <th className={classes.table_col_header}>Date</th>
+        <th className={classes.table_col_header}>From</th>
+        <th className={classes.table_col_header}>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {messages.map((message) => (
+        <tr key={message._id} className={classes.message}>
+          <td className={classes.message_date}>{formatDate(message.date)}</td>
+          <td className={classes.message_name}>{message.name}</td>
+          <td className={classes.message_text}>{message.messageText}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+      </main>
       {modalOpen && <FormModal closeModal={closeModal} formType={formType} />}
     </>
   );

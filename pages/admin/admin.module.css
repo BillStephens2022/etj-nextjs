@@ -56,3 +56,30 @@
   min-height: 60vh;
   background-color: black;
 }
+
+.messages_div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.message_center_header {
+  font-size: 1.75rem;
+  color: white;
+  margin-top: 0;
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+
+.table_col_header {
+  color: white;
+}
+
+
+
+.message_date, .message_name, .message_text {
+  font-size: 1rem;
+  color: var(--primaryGray500);
+  padding: 0.5rem;
+}

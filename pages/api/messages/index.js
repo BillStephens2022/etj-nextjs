@@ -23,6 +23,16 @@ const handler = async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: "Internal server error" });
     }
+  } else if (req.method === "GET") {
+    try {
+      const messages = await Message.find({});
+      res.status(200).json(messages);
+    } catch (error) {
+      console.error("Error fetching messages:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  } else {
+    res.status(405).json({ error: "Method Not Allowed" });
   }
 };
 
