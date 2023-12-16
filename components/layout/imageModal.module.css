@@ -1,0 +1,46 @@
+.image_modal {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  width: 75%;
+  max-width: 90vw; /* Adjust the maximum width as needed */
+  height: 90%;
+  max-height: 600px; /* Adjust the maximum height as needed */
+  border-radius: 8px;
+  padding: 20px;
+  overflow: hidden;
+  z-index: 1000;
+  text-align: center;
+}
+
+.modal_image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+    .image_modal {
+        top: 50%;
+        width: 90%;
+        max-width: 90%;
+        height: 90%;
+        max-width: 90%;
+    }
+
+   
+}
+
+@media (max-width: 767px) {
+    .image_modal {
+        top: 50%;
+        width: 99%;
+        max-width: 99%;
+        height: 99%;
+        max-width: 99%;
+    }
+
+   
+}
