@@ -7,7 +7,6 @@ import DeleteConfirmation from "../notifications/deleteConfirmation";
 import { getFundraisers, deleteFundraiser, editFundraiser } from "@/lib/api";
 import classes from "@/components/layout/fundraiserCard.module.css";
 import Image from "next/image";
-import { CloudinaryVideoPlayer } from "next-cloudinary";
 
 const FundraiserCard = ({
   fundraisers,
@@ -93,7 +92,6 @@ const FundraiserCard = ({
     mp4: 'video/mp4', // Example: MP4 format
     webm: 'video/webm', // Example: WebM format
     mov: 'video/mov'
-    // Add more video formats and their corresponding MIME types here
   };
 
   const renderVideoSources = () => {
@@ -109,7 +107,6 @@ const FundraiserCard = ({
           {isImage(fundraiser.imageLink) ? (
             <div
               className={classes.banner_image}
-              // style={{ backgroundImage: `url(${fundraiser.imageLink})` }}
             >
               <Image
                 src={fundraiser.imageLink}
