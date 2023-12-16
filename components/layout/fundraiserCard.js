@@ -7,6 +7,7 @@ import DeleteConfirmation from "../notifications/deleteConfirmation";
 import { getFundraisers, deleteFundraiser, editFundraiser } from "@/lib/api";
 import classes from "@/components/layout/fundraiserCard.module.css";
 import Image from "next/image";
+import { CloudinaryVideoPlayer } from "next-cloudinary";
 
 const FundraiserCard = ({
   fundraisers,
@@ -83,23 +84,51 @@ const FundraiserCard = ({
     objectFit: "cover",
   };
 
+  const isImage = (url) => {
+    // Check if the URL ends with a common image extension
+    return /\.(jpeg|jpg|gif|png)$/i.test(url);
+  };
+
+  const videoSources = {
+    mp4: 'video/mp4', // Example: MP4 format
+    webm: 'video/webm', // Example: WebM format
+    mov: 'video/mov'
+    // Add more video formats and their corresponding MIME types here
+  };
+
+  const renderVideoSources = () => {
+    return Object.keys(videoSources).map((format) => (
+      <source key={format} src={`${fundraiser.imageLink}`} type={videoSources[format]} />
+    ));
+  };
+
   return (
     <>
       <div className={classes.card} key={fundraiser._id}>
         <div className={classes.card_inner_wrapper}>
-          <div
-            className={classes.banner_image}
-            // style={{ backgroundImage: `url(${fundraiser.imageLink})` }}
-          >
-            <Image
-              src={fundraiser.imageLink}
-              width={250}
-              height={300}
-              quality={100}
-              style={imageStyle}
-              alt="Fundraiser Image"
-            />{" "}
-          </div>
+          {isImage(fundraiser.imageLink) ? (
+            <div
+              className={classes.banner_image}
+              // style={{ backgroundImage: `url(${fundraiser.imageLink})` }}
+            >
+              <Image
+                src={fundraiser.imageLink}
+                width={250}
+                height={300}
+                quality={100}
+                style={imageStyle}
+                alt="Fundraiser Image"
+                priority
+              />
+            </div>
+          ) : (
+            <div className={classes.banner_image}>
+                <video width={250} height={300} controls>
+                {renderVideoSources()}
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
           <div className={classes.card_header}>
             <h3 className={classes.fundraiser_title}>{fundraiser.title}</h3>
           </div>

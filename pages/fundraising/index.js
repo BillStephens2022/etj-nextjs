@@ -26,6 +26,7 @@ const Fundraising = ({ props }) => {
       const sortedFundraisers = data.sort(
         (a, b) => new Date(b.fundraiserDate) - new Date(a.fundraiserDate)
       );
+      console.log(sortedFundraisers);
       setFundraisers(sortedFundraisers);
     }
   }, [data, error]);

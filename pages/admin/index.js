@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/router";
-import { FaPlus, FaUserPlus } from "react-icons/fa6";
+import { FaUserPlus } from "react-icons/fa6";
 import { GiCrossedSwords } from "react-icons/gi";
 import { MdLogout, MdLockReset, MdOutlineAttachMoney } from "react-icons/md";
 import Header from "@/components/layout/header";
