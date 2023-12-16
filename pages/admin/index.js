@@ -7,7 +7,7 @@ import { MdLogout, MdLockReset, MdOutlineAttachMoney } from "react-icons/md";
 import { FaTrashCan } from "react-icons/fa6";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { formatDate } from "@/lib/util";
-import { deleteMessage, getMessages } from "@/lib/api";
+import { deleteMessage, getMessages, getUsers, deleteUser } from "@/lib/api";
 import Header from "@/components/layout/header";
 import Loader from "@/components/layout/loader";
 import Button from "@/components/ui/Button";
@@ -22,9 +22,16 @@ const Admin = () => {
   // state to set the form type to tell the modal which form to display
   const [formType, setFormType] = useState("");
   const [messages, setMessages] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const { data, error } = useSWR(
     "/api/messages/",
+    (url) => fetch(url).then((res) => res.json()),
+    { refreshInterval: 1000 }
+  );
+
+  const { data: userData, error: userError } = useSWR(
+    "/api/users/",
     (url) => fetch(url).then((res) => res.json()),
     { refreshInterval: 1000 }
   );
@@ -51,6 +58,16 @@ const Admin = () => {
       setMessages(sortedMessages);
     }
   }, [data, error]);
+
+  useEffect(() => {
+    if (userError) {
+      console.error("Error fetching users:", userError);
+    }
+    if (userData) {
+      console.log(userData);
+      setUsers(userData);
+    }
+  }, [userData, userError]);
 
   if (error) {
     return <p>{error}</p>;
@@ -103,6 +120,25 @@ const Admin = () => {
     }
   };
 
+  const deleteUserHandler = (userId) => {
+    const confirmation = confirm("Are you sure you want to delete this User?");
+    return confirmation ? confirmDeleteUser(userId) : null;
+  };
+
+  const confirmDeleteUser = async (userId) => {
+    try {
+      const success = await deleteUser(userId);
+      if (success) {
+        const updatedUsers = await getUsers();
+        setUsers(updatedUsers);
+      } else {
+        console.error("Error deleting User");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   const messageCount = messages.length;
 
   return (
@@ -125,103 +161,132 @@ const Admin = () => {
         )}
       </div>
       {session && (
-        <div className={classes.main_container}>
-          <h2 className={classes.functions_header}>Admin Functions</h2>
-          <table className={classes.table}>
-            <thead>
-              {/* <tr>
+        <>
+          <div className={classes.top_container}>
+            <div className={classes.functions_container}>
+              <h2 className={classes.functions_header}>Admin Functions</h2>
+              <table className={classes.table}>
+                <thead>
+                  {/* <tr>
                 <th>Admin Functions:</th>
                 <th>Buttons</th>
               </tr> */}
-            </thead>
-            <tbody>
-              <tr className={classes.table_row}>
-                <td className={classes.table_data}>Add A New Fundraiser</td>
-                <td className={classes.table_data}>
-                  <Button onClick={() => openModal("addFundraiser")}>
-                    <MdOutlineAttachMoney />
-                  </Button>
-                </td>
-              </tr>
-              <tr className={classes.table_row}>
-                <td className={classes.table_data}>Change Password</td>
-                <td className={classes.table_data}>
-                  <Button onClick={() => openModal("changePassword")}>
-                    <MdLockReset />
-                  </Button>
-                </td>
-              </tr>
-              <tr className={classes.table_row}>
-                <td className={classes.table_data}>Add A New Admin User</td>
-                <td className={classes.table_data}>
-                  <Button onClick={() => openModal("signup")}>
-                    <FaUserPlus />
-                  </Button>
-                </td>
-              </tr>
-              <tr className={classes.table_row}>
-                <td className={classes.table_data}>Logout</td>
-                <td className={classes.table_data}>
-                  <Button
-                    backgroundImage="var(--linear-gradient-red)"
-                    onClick={logoutHandler}
-                  >
-                    <MdLogout />
-                  </Button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      )}
-      <main className={classes.main}>
-        <h3 className={classes.message_center_header}>
-          {/* Display red dot with messageCount only when there are messages */}
-          
-          Message Center
-          <IconButton className={classes.notification_icon} color="white">
-            <IoMdNotificationsOutline  />
-            {messageCount > 0 && (
-            <span className={classes.message_count_dot}>{messageCount}</span>
-          )}
-          </IconButton>
-        </h3>
-        <div className={classes.messages_div}>
-          <table className={classes.messages_table}>
-            <thead>
-              <tr className={classes.message_table_row}>
-                <th className={classes.table_col_header}>Date</th>
-                <th className={classes.table_col_header}>From</th>
-                <th className={classes.table_col_header}>Message</th>
-                <th className={classes.table_col_header}>
-                  <FaTrashCan />
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {messages.map((message) => (
-                <tr key={message._id} className={classes.message_table_row}>
-                  <td className={classes.message_date}>
-                    {formatDate(message.date)}
-                  </td>
-                  <td className={classes.message_name}>{message.name}</td>
-                  <td className={classes.message_text}>
-                    {message.messageText}
-                  </td>
-                  <td className={classes.message_delete_icon_cell}>
-                    <IconButton
-                      className={classes.message_delete_icon}
-                      onClick={(event) => handleDeleteMessage(message._id)}
-                    >
+                </thead>
+                <tbody>
+                  <tr className={classes.table_row}>
+                    <td className={classes.table_data}>Add A New Fundraiser</td>
+                    <td className={classes.table_data}>
+                      <Button onClick={() => openModal("addFundraiser")}>
+                        <MdOutlineAttachMoney />
+                      </Button>
+                    </td>
+                  </tr>
+                  <tr className={classes.table_row}>
+                    <td className={classes.table_data}>Change Password</td>
+                    <td className={classes.table_data}>
+                      <Button onClick={() => openModal("changePassword")}>
+                        <MdLockReset />
+                      </Button>
+                    </td>
+                  </tr>
+                  <tr className={classes.table_row}>
+                    <td className={classes.table_data}>Add A New Admin User</td>
+                    <td className={classes.table_data}>
+                      <Button onClick={() => openModal("signup")}>
+                        <FaUserPlus />
+                      </Button>
+                    </td>
+                  </tr>
+                  <tr className={classes.table_row}>
+                    <td className={classes.table_data}>Logout</td>
+                    <td className={classes.table_data}>
+                      <Button
+                        backgroundImage="var(--linear-gradient-red)"
+                        onClick={logoutHandler}
+                      >
+                        <MdLogout />
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className={classes.users_container}>
+              <h2 className={classes.functions_header}>Admin Users</h2>
+              <table className={classes.table}>
+                <thead>
+                  {/* <tr>
+                <th>Admin Functions:</th>
+                <th>Buttons</th>
+              </tr> */}
+                </thead>
+                <tbody>
+                  {users.map((user) => (
+                    <tr className={classes.table_row} key={user._id}>
+                      <td className={classes.table_data}>{user.username}</td>
+                      <td className={classes.table_data}>
+                        <Button onClick={() => deleteUserHandler(user._id)}>
+                          <FaTrashCan />
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <main className={classes.main}>
+            <h3 className={classes.message_center_header}>
+              {/* Display red dot with messageCount only when there are messages */}
+              Message Center
+              <IconButton className={classes.notification_icon} color="white">
+                <IoMdNotificationsOutline />
+                {messageCount > 0 && (
+                  <span className={classes.message_count_dot}>
+                    {messageCount}
+                  </span>
+                )}
+              </IconButton>
+            </h3>
+            <div className={classes.messages_div}>
+              <table className={classes.messages_table}>
+                <thead>
+                  <tr className={classes.message_table_row}>
+                    <th className={classes.table_col_header}>Date</th>
+                    <th className={classes.table_col_header}>From</th>
+                    <th className={classes.table_col_header}>Message</th>
+                    <th className={classes.table_col_header}>
                       <FaTrashCan />
-                    </IconButton>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </main>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {messages.map((message) => (
+                    <tr key={message._id} className={classes.message_table_row}>
+                      <td className={classes.message_date}>
+                        {formatDate(message.date)}
+                      </td>
+                      <td className={classes.message_name}>{message.name}</td>
+                      <td className={classes.message_text}>
+                        {message.messageText}
+                      </td>
+                      <td className={classes.message_delete_icon_cell}>
+                        <IconButton
+                          className={classes.message_delete_icon}
+                          onClick={(event) => handleDeleteMessage(message._id)}
+                        >
+                          <FaTrashCan />
+                        </IconButton>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </main>
+        </>
+      )}
       {modalOpen && <FormModal closeModal={closeModal} formType={formType} />}
     </>
   );
