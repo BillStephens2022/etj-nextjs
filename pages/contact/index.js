@@ -12,6 +12,9 @@ function Contact() {
     name: "",
     messageText: "",
   });
+  // state to render a success message to the user if their message submission was successful
+  const [successMessage, setSuccessMessage] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +29,10 @@ function Contact() {
     console.log("form submitted: ", formData);
     await createMessage(formData);
     setFormData({name: "", messageText: ""});
+    setSuccessMessage(true); // Set success message visibility to true after form submission
+    setTimeout(() => {
+      setSuccessMessage(false); // Hide success message after 3 seconds
+    }, 3000);
   };
 
   return (
@@ -98,6 +105,10 @@ function Contact() {
             >
               Submit
             </Button>
+            {successMessage && (
+            <p className={classes.successMessage}>Message sent successfully!</p>
+          )}
+
           </form>
         </div>
       </main>
