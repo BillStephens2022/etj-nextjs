@@ -4,7 +4,7 @@ import FormModal from "../forms/formModal";
 import Button from "../ui/Button";
 import IconButton from "../ui/iconButton";
 import DeleteConfirmation from "../notifications/deleteConfirmation";
-import { getFundraisers, deleteFundraiser, editFundraiser } from "@/lib/api";
+import { getFundraisers, deleteFundraiser } from "@/lib/api";
 import classes from "@/components/layout/fundraiserCard.module.css";
 import Image from "next/image";
 

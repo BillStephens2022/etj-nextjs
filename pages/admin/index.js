@@ -6,6 +6,7 @@ import { GiCrossedSwords } from "react-icons/gi";
 import { MdLogout, MdLockReset, MdOutlineAttachMoney } from "react-icons/md";
 import { FaTrashCan } from "react-icons/fa6";
 import { formatDate } from "@/lib/util";
+import { deleteMessage, getMessages } from "@/lib/api";
 import Header from "@/components/layout/header";
 import Loader from "@/components/layout/loader";
 import Button from "@/components/ui/Button";
@@ -27,15 +28,14 @@ const Admin = () => {
     { refreshInterval: 1000 }
   );
 
-    // Use useEffect to handle changes to the session object
-    useEffect(() => {
-      if (!session) {
-        console.log("SESSION: ", session);
-        setModalOpen(true);
-        setFormType("login");
-      }
-    }, [session]);
-
+  // Use useEffect to handle changes to the session object
+  useEffect(() => {
+    if (!session) {
+      console.log("SESSION: ", session);
+      setModalOpen(true);
+      setFormType("login");
+    }
+  }, [session]);
 
   useEffect(() => {
     if (error) {
@@ -51,8 +51,6 @@ const Admin = () => {
     }
   }, [data, error]);
 
-  
-  
   if (error) {
     return <p>{error}</p>;
   }
@@ -78,6 +76,34 @@ const Admin = () => {
 
   const logoutHandler = () => {
     signOut();
+  };
+
+  const handleDeleteMessage = (messageId) => {
+    const confirmation = confirm(
+      "Are you sure you want to delete this message?"
+    );
+    return confirmation ? confirmDeleteMessage(messageId) : null;
+  };
+
+  const confirmDeleteMessage = async (messageId) => {
+    try {
+      const success = await deleteMessage(messageId);
+      if (success) {
+        const updatedMessages = await getMessages();
+        const sortedMessages = updatedMessages.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+        setMessages(sortedMessages);
+      } else {
+        console.error("Error deleting message");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const cancelDeleteMessage = () => {
+    return;
   };
 
   return (
@@ -129,9 +155,7 @@ const Admin = () => {
               <tr className={classes.table_row}>
                 <td className={classes.table_data}>Add A New Admin User</td>
                 <td className={classes.table_data}>
-                  <Button
-                    onClick={() => openModal("signup")}
-                  >
+                  <Button onClick={() => openModal("signup")}>
                     <FaUserPlus />
                   </Button>
                 </td>
@@ -152,29 +176,42 @@ const Admin = () => {
         </div>
       )}
       <main className={classes.main}>
-      <h3 className={classes.message_center_header}>Message Center</h3>
-      <div className={classes.messages_div}>
-  <table className={classes.messages_table}>
-    <thead>
-      <tr className={classes.message_table_row}>
-        <th className={classes.table_col_header}>Date</th>
-        <th className={classes.table_col_header}>From</th>
-        <th className={classes.table_col_header}>Message</th>
-        <th className={classes.table_col_header}><FaTrashCan /></th>
-      </tr>
-    </thead>
-    <tbody>
-      {messages.map((message) => (
-        <tr key={message._id} className={classes.message_table_row}>
-          <td className={classes.message_date}>{formatDate(message.date)}</td>
-          <td className={classes.message_name}>{message.name}</td>
-          <td className={classes.message_text}>{message.messageText}</td>
-          <td className={classes.message_delete_icon}><IconButton className={classes.message_delete_icon}><FaTrashCan /></IconButton></td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
+        <h3 className={classes.message_center_header}>Message Center</h3>
+        <div className={classes.messages_div}>
+          <table className={classes.messages_table}>
+            <thead>
+              <tr className={classes.message_table_row}>
+                <th className={classes.table_col_header}>Date</th>
+                <th className={classes.table_col_header}>From</th>
+                <th className={classes.table_col_header}>Message</th>
+                <th className={classes.table_col_header}>
+                  <FaTrashCan />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {messages.map((message) => (
+                <tr key={message._id} className={classes.message_table_row}>
+                  <td className={classes.message_date}>
+                    {formatDate(message.date)}
+                  </td>
+                  <td className={classes.message_name}>{message.name}</td>
+                  <td className={classes.message_text}>
+                    {message.messageText}
+                  </td>
+                  <td className={classes.message_delete_icon}>
+                    <IconButton
+                      className={classes.message_delete_icon}
+                      onClick={(event) => handleDeleteMessage(message._id)}
+                    >
+                      <FaTrashCan />
+                    </IconButton>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </main>
       {modalOpen && <FormModal closeModal={closeModal} formType={formType} />}
     </>
