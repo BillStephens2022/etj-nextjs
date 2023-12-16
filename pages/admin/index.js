@@ -5,6 +5,7 @@ import { FaUserPlus } from "react-icons/fa6";
 import { GiCrossedSwords } from "react-icons/gi";
 import { MdLogout, MdLockReset, MdOutlineAttachMoney } from "react-icons/md";
 import { FaTrashCan } from "react-icons/fa6";
+import { IoMdNotificationsOutline } from "react-icons/io";
 import { formatDate } from "@/lib/util";
 import { deleteMessage, getMessages } from "@/lib/api";
 import Header from "@/components/layout/header";
@@ -102,9 +103,7 @@ const Admin = () => {
     }
   };
 
-  const cancelDeleteMessage = () => {
-    return;
-  };
+  const messageCount = messages.length;
 
   return (
     <>
@@ -176,7 +175,17 @@ const Admin = () => {
         </div>
       )}
       <main className={classes.main}>
-        <h3 className={classes.message_center_header}>Message Center</h3>
+        <h3 className={classes.message_center_header}>
+          {/* Display red dot with messageCount only when there are messages */}
+          
+          Message Center
+          <IconButton className={classes.notification_icon} color="white">
+            <IoMdNotificationsOutline  />
+            {messageCount > 0 && (
+            <span className={classes.message_count_dot}>{messageCount}</span>
+          )}
+          </IconButton>
+        </h3>
         <div className={classes.messages_div}>
           <table className={classes.messages_table}>
             <thead>

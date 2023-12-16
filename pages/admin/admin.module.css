@@ -65,11 +65,35 @@
 }
 
 .message_center_header {
+  position: relative;
   font-size: 1.75rem;
   color: white;
   margin-top: 0;
   padding-top: 2rem;
   padding-left: 1rem;
+}
+
+.notification_icon {
+  position: relative;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: white;
+  animation: ring 1s 5;
+}
+
+.message_count_dot {
+  position: absolute;
+  top: -0.5rem; 
+  right: -0.1rem;
+  background-color: var(--primaryRed500);
+  color: white;
+  font-size: 0.6rem;
+  border-radius: 50%;
+  width: 1.25rem; 
+  height: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .messages_table {
@@ -114,4 +138,22 @@
   color: white;
   
   text-align: center;
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
