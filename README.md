@@ -1,40 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ETJ - Enter the Johnsons<br>![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Getting Started
+  ## Description
 
-First, run the development server:
+  Full Stack Web application for a Non-Profit Organization, ETJ (Enter the Johnsons), "providing martial arts and mentoring for our kids that need it most.".  Built with NextJS, MongoDB, Mongoose, and Cloudinary.  Allows Admin Users to Post New Fundraiser campaigns (including photo/video upload via Cloudinary API).
+  Admin Users can also delete or edit prior fundraising campaigns and view messages from website visitors on the Admin Page.  Admin Page also features ability to change password, add / delete admin users, and delete messages after they are read. Website visitors can send messages/feedback to the organization via the Contact page.  About Page features and image carousel and information about the organization and team members.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  App Screenshot:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  ![app screenshot](./public/images/screenshot1.png)
+  
+  ## Table of Contents
+  
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  
+  ## Installation
+  
+  deployed URL: https://etj-nextjs.vercel.app
+  
+  ## Usage
+  
+  visit the deployed URL above and navigate to various pages
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+  ## License
+This application is covered under the MIT License.
+<br>For more information: https://opensource.org/licenses/MIT
+  
+  ## Contributing
+  N/A
+  
+  ## Tests
+  N/A
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  ## Questions
+  Contact Info<br>
+  GitHub user name: BillStephens2022<br>
+  Link to GitHub profile: https://github.com/BillStephens2022<br>
+  Email: stephensbill17@gmail.com
