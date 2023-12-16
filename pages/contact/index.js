@@ -25,6 +25,7 @@ function Contact() {
     event.preventDefault();
     console.log("form submitted: ", formData);
     await createMessage(formData);
+    setFormData({name: "", messageText: ""});
   };
 
   return (

@@ -199,7 +199,7 @@ const Admin = () => {
                   <td className={classes.message_text}>
                     {message.messageText}
                   </td>
-                  <td className={classes.message_delete_icon}>
+                  <td className={classes.message_delete_icon_cell}>
                     <IconButton
                       className={classes.message_delete_icon}
                       onClick={(event) => handleDeleteMessage(message._id)}

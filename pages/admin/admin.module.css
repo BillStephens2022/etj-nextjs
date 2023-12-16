@@ -89,7 +89,8 @@
 
 .message_date, .message_name, .message_text {
   font-size: 1rem;
-  color: var(--primaryGray500);
+  color: white;
+  font-weight: 300;
   padding: 0.5rem;
   vertical-align: top;
   border: solid white 2px;
@@ -103,8 +104,14 @@
   width: 8rem;
 }
 
+.message_delete_icon_cell {
+  color: white;
+  border: 2px solid white;
+  text-align: center;
+}
+
 .message_delete_icon {
   color: white;
-  border: solid white 2px;
+  
   text-align: center;
 }
