@@ -22,6 +22,7 @@
   align-items: center;
   justify-content: center;
   padding-right: 0.5rem;
+  
 }
 
 .form_div {
@@ -34,10 +35,12 @@
 }
 
 .fb_icon {
-  background-color: var(--primaryRed500);
+  background-color: black;
   display: inline-flex;
   align-items: center;
   margin-right: 0.5rem;
+  text-decoration: none;
+  color: steelblue;
 }
 
 .note_heading {

@@ -1,11 +1,11 @@
 import { Fragment, useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { CldUploadWidget } from "next-cloudinary";
+import { useRouter } from "next/router";
 import { editFundraiser, createFundraiser } from "@/lib/api";
 import Button from "@/components/ui/Button";
 import classes from "@/components/forms/addFundraiser.module.css";
 import "react-datepicker/dist/react-datepicker.css";
-
 
 const initialFormData = {
   title: "",
@@ -14,14 +14,10 @@ const initialFormData = {
   imageLink: "",
 };
 
-
-
-
-
 const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
   const [formData, setFormData] = useState(initialFormData);
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
-
+  const router = useRouter(); // Initialize the useRouter hook
   useEffect(() => {
     if (selectedFundraiser) {
       // Populate form fields with selectedFundraiser data if available
@@ -68,8 +64,9 @@ const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
     } else {
       // Call createFundraiser if no selectedFundraiser is available
       await createFundraiser(formData);
+      router.push("/fundraising"); // Redirect to the Fundraising Page after creating a fundraiser
     }
-  
+
     closeModal();
   };
 
@@ -87,7 +84,9 @@ const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
               name="fundraiserDate"
               placeholderText={"Fundraiser Date"}
               selected={
-                formData.fundraiserDate ? new Date(formData.fundraiserDate) : null
+                formData.fundraiserDate
+                  ? new Date(formData.fundraiserDate)
+                  : null
               } // Parse the stored date string to a Date object for the DatePicker component
               onFocus={(e) => (e.target.readOnly = true)}
               disabledKeyboardNavigation
@@ -123,18 +122,17 @@ const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
             />
           </div>
           <div className={classes.form_group}>
-           
             <div className={classes.upload_and_preview}>
               {uploadedImageUrl && (
                 <div>
-                 <label htmlFor="imageLink" className={classes.label}>
-                 Fundraiser Image Preview
-               </label>
-                <img
-                  src={uploadedImageUrl}
-                  alt="Uploaded Fundraiser Image"
-                  className={classes.imagePreview}
-                />
+                  <label htmlFor="imageLink" className={classes.label}>
+                    Fundraiser Image Preview
+                  </label>
+                  <img
+                    src={uploadedImageUrl}
+                    alt="Uploaded Fundraiser Image"
+                    className={classes.imagePreview}
+                  />
                 </div>
               )}
               <CldUploadWidget
@@ -161,10 +159,9 @@ const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
             </div>
           </div>
           <div className={classes.form_group}>
-            <Button
-              type="submit"
-              margin="0.5rem 0 0.5rem 0"
-            >Submit</Button>
+            <Button type="submit" margin="0.5rem 0 0.5rem 0">
+              Submit
+            </Button>
           </div>
         </form>
       </div>

@@ -47,9 +47,10 @@ function Contact() {
                   borderRadius: "5px",
                 }}
               />
-            </Link>
-            <FaRegHandPointLeft style={{ marginRight: "5px" }} />
+            
+            <FaRegHandPointLeft style={{ marginLeft: "8px", marginRight: "5px" }} />
             <p>Check out our Facebook Page</p>
+            </Link>
           </div>
           <div className={classes.email_icon_div}>
               <FaEnvelope
