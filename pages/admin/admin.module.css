@@ -26,7 +26,8 @@
   background-color: black;
 }
 
-.functions_container, .users_container {
+.functions_container,
+.users_container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,6 +38,14 @@
   font-family: "Lato", sans-serif;
   color: white;
 }
+
+.warning_wrapper {
+ text-align: center;
+ color: var(--primaryRed500);
+ font-weight: 900;
+ letter-spacing: 0.1rem;
+}
+
 .table {
   font-family: "Lato", sans-serif;
   color: var(--primaryGray900);
@@ -91,13 +100,13 @@
 
 .message_count_dot {
   position: absolute;
-  top: -0.5rem; 
+  top: -0.5rem;
   right: -0.1rem;
   background-color: var(--primaryRed500);
   color: white;
   font-size: 0.6rem;
   border-radius: 50%;
-  width: 1.25rem; 
+  width: 1.25rem;
   height: 1.25rem;
   display: flex;
   justify-content: center;
@@ -119,7 +128,9 @@
   padding: 0.5rem;
 }
 
-.message_date, .message_name, .message_text {
+.message_date,
+.message_name,
+.message_text {
   font-size: 1rem;
   color: white;
   font-weight: 300;
@@ -144,7 +155,7 @@
 
 .message_delete_icon {
   color: white;
-  
+
   text-align: center;
 }
 
@@ -163,5 +174,11 @@
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .top_container {
+    flex-direction: column;
   }
 }

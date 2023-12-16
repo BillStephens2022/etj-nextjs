@@ -6,6 +6,7 @@ import { GiCrossedSwords } from "react-icons/gi";
 import { MdLogout, MdLockReset, MdOutlineAttachMoney } from "react-icons/md";
 import { FaTrashCan } from "react-icons/fa6";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoIosWarning } from "react-icons/io";
 import { formatDate } from "@/lib/util";
 import { deleteMessage, getMessages, getUsers, deleteUser } from "@/lib/api";
 import Header from "@/components/layout/header";
@@ -214,18 +215,20 @@ const Admin = () => {
             <div className={classes.users_container}>
               <h2 className={classes.functions_header}>Admin Users</h2>
               <table className={classes.table}>
-                <thead>
-                  {/* <tr>
-                <th>Admin Functions:</th>
-                <th>Buttons</th>
-              </tr> */}
+                <thead className={classes.warning_wrapper}>
+                 
+                 <IoIosWarning style={{ color: "goldenrod", fontSize: "50px" }}/>
+              
+                 <thead className={classes.warning}>
+                 WARNING-THIS WILL PERMANENTLY DELETE A USER
+                 </thead>
                 </thead>
                 <tbody>
                   {users.map((user) => (
                     <tr className={classes.table_row} key={user._id}>
                       <td className={classes.table_data}>{user.username}</td>
                       <td className={classes.table_data}>
-                        <Button onClick={() => deleteUserHandler(user._id)}>
+                        <Button onClick={() => deleteUserHandler(user._id)} backgroundImage="var(--linear-gradient-red)">
                           <FaTrashCan />
                         </Button>
                       </td>
