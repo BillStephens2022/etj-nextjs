@@ -4,12 +4,14 @@ import useSWR from "swr";
 import { FaUserPlus } from "react-icons/fa6";
 import { GiCrossedSwords } from "react-icons/gi";
 import { MdLogout, MdLockReset, MdOutlineAttachMoney } from "react-icons/md";
+import { FaTrashCan } from "react-icons/fa6";
 import { formatDate } from "@/lib/util";
 import Header from "@/components/layout/header";
 import Loader from "@/components/layout/loader";
 import Button from "@/components/ui/Button";
 import FormModal from "@/components/forms/formModal";
 import classes from "@/pages/admin/admin.module.css";
+import IconButton from "@/components/ui/iconButton";
 
 const Admin = () => {
   const { data: session } = useSession();
@@ -154,18 +156,20 @@ const Admin = () => {
       <div className={classes.messages_div}>
   <table className={classes.messages_table}>
     <thead>
-      <tr>
+      <tr className={classes.message_table_row}>
         <th className={classes.table_col_header}>Date</th>
         <th className={classes.table_col_header}>From</th>
         <th className={classes.table_col_header}>Message</th>
+        <th className={classes.table_col_header}><FaTrashCan /></th>
       </tr>
     </thead>
     <tbody>
       {messages.map((message) => (
-        <tr key={message._id} className={classes.message}>
+        <tr key={message._id} className={classes.message_table_row}>
           <td className={classes.message_date}>{formatDate(message.date)}</td>
           <td className={classes.message_name}>{message.name}</td>
           <td className={classes.message_text}>{message.messageText}</td>
+          <td className={classes.message_delete_icon}><IconButton className={classes.message_delete_icon}><FaTrashCan /></IconButton></td>
         </tr>
       ))}
     </tbody>

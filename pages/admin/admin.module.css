@@ -72,14 +72,39 @@
   padding-left: 1rem;
 }
 
-.table_col_header {
-  color: white;
+.messages_table {
+  border-collapse: collapse;
 }
 
+.message_table_row:nth-child(even) {
+  background-color: var(--primaryGray900);
+}
 
+.table_col_header {
+  color: white;
+  border: solid white 2px;
+  background-color: var(--primaryGray900);
+  padding: 0.5rem;
+}
 
 .message_date, .message_name, .message_text {
   font-size: 1rem;
   color: var(--primaryGray500);
   padding: 0.5rem;
+  vertical-align: top;
+  border: solid white 2px;
+}
+
+.message_date {
+  width: 6rem;
+}
+
+.message_name {
+  width: 8rem;
+}
+
+.message_delete_icon {
+  color: white;
+  border: solid white 2px;
+  text-align: center;
 }
