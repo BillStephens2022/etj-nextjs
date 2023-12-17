@@ -100,6 +100,17 @@ const FundraiserCard = ({
     ));
   };
 
+  function generateThumbnailURL(url) {
+    const parts = url.split('/');
+    const fileWithExtension = parts[parts.length - 1]; // Get the last part of the URL
+    const publicId = fileWithExtension.split('.')[0]; // Remove the extension
+    const thumbnailUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/video/upload/e_preview:duration_0/${publicId}.jpg`;
+    return thumbnailUrl;
+  }
+
+  const posterUrl = generateThumbnailURL(fundraiser.imageLink);
+
+
   return (
     <>
       <div className={classes.card} key={fundraiser._id}>
@@ -120,7 +131,7 @@ const FundraiserCard = ({
             </div>
           ) : (
             <div className={classes.banner_image}>
-                <video width={250} height={300} controls>
+                <video width={250} height={300} controls poster={posterUrl}>
                 {renderVideoSources()}
                 Your browser does not support the video tag.
               </video>
