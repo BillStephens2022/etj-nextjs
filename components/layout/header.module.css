@@ -13,6 +13,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+  transition: 0.3s ease;
+}
+
+.header:hover {
+  transform: skewX(-10deg);
 }
 
 .page_heading {
@@ -24,6 +29,35 @@
   margin: 0;
   padding: 0;
   padding-bottom: 1rem;
+}
+
+.page_heading span {
+  display: inline-block;
+  opacity: 0;
+}
+
+.page_heading span:nth-child(1) {
+  animation: stampAnimation 0.5s ease 1s forwards;
+}
+
+.page_heading span:nth-child(2) {
+  animation: stampAnimation 0.5s ease 2s forwards;
+}
+
+.page_heading span:nth-child(3) {
+  animation: stampAnimation 0.5s ease 3s forwards;
+}
+
+
+@keyframes stampAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
