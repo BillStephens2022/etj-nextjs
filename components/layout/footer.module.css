@@ -1,14 +1,15 @@
 .footer {
     background-color: rgb(41, 39, 39);
     min-height: 2vh;
-    padding: 0.5rem;
+    padding: 0.75rem;
     display: flex;
     flex-wrap: flex-start;
     align-items: center;
+    justify-content: center;
 }
 
 .text {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     color: lightgray;
 }
 
@@ -25,7 +26,6 @@
 
 @media (max-width: 768px) {
     .footer {
-        font-size: 0.5rem;
+        font-size: 0.75rem;
     }
-    
-  }
+}
