@@ -180,5 +180,6 @@
 @media (max-width: 767px) {
   .top_container {
     flex-direction: column;
+    align-items: center;
   }
 }
