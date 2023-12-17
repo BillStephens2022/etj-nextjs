@@ -6,7 +6,6 @@ import PhotoSlider from "@/components/layout/photoSlider";
 import chris from "@/public/images/chris.jpg";
 import hkphooey from "@/public/images/hkphooey.png";
 import panda from "@/public/images/panda.png";
-import class1 from "@/public/images/class1.jpg";
 import classes from "@/pages/about/about.module.css";
 
 const About = () => {

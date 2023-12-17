@@ -4,7 +4,7 @@ class ETJDocument extends Document {
     render() {
         return <Html lang='en'>
             <Head>
-            <title>ETJ - Enter The Johnsons</title>
+           
           <link rel="icon" type="image/png" href="/images/icon.png" />
             </Head>
             <body>
