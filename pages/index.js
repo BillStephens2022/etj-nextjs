@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import logo from "../public/images/logo2.png";
+import logo from "@/public/images/logo2.png";
 import classes from "@/styles/Home.module.css";
 import Header from "@/components/layout/header";
 import Button from "@/components/ui/Button";
@@ -9,10 +9,9 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>ETJ</title>
+        <title>ETJ - Enter The Johnsons</title>
         <meta name="description" content="ETJ" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className={classes.logo_container}>
