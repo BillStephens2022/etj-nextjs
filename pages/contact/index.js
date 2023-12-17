@@ -37,7 +37,7 @@ function Contact() {
 
   return (
     <>
-      <Header pageTitle="Contact US" />
+      <Header pageTitle="Contact Us" />
 
       <main className={classes.main}>
         <div className={classes.contact_info_div}>
