@@ -26,7 +26,7 @@ const Home = () => {
           className={classes.logo}
         />
       </div>
-      <Header pageTitle="Enter the Johnsons">ETJ</Header>
+      <Header pageTitle="Enter the Johnsons" isAnimated={true}>ETJ</Header>
       {/* <div className={classes.background_image_container}></div> */}
       <main className={classes.main}>
         <h3 className={classes.main_heading}>

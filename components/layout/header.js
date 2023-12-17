@@ -1,7 +1,7 @@
 import { GiCrossedSwords } from "react-icons/gi";
 import classes from "@/components/layout/header.module.css";
 
-const Header = ({ pageTitle }) => {
+const Header = ({ pageTitle, isAnimated=false }) => {
   const splitTitle = (text) => {
     const splitTitleArray = text.split(" ").map((word, index) => <span key={index}>{word}&nbsp;</span>);
     return splitTitleArray;
@@ -18,7 +18,7 @@ const Header = ({ pageTitle }) => {
         </span>
       </h1>
       {pageTitle && (
-        <h2 className={classes.page_heading}>{splitTitle(pageTitle)}</h2>
+        <h2 className={isAnimated ? classes.page_heading_animated : classes.page_heading}>{splitTitle(pageTitle)}</h2>
       )}
     </div>
   );

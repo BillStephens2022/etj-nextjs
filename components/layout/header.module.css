@@ -20,7 +20,7 @@
   transform: skewX(-10deg);
 }
 
-.page_heading {
+.page_heading, .page_heading_animated {
   font-size: 1.75rem;
   font-family: "Aclonica", sans-serif;
   font-style: italic;
@@ -31,20 +31,20 @@
   padding-bottom: 1rem;
 }
 
-.page_heading span {
+.page_heading_animated span {
   display: inline-block;
   opacity: 0;
 }
 
-.page_heading span:nth-child(1) {
+.page_heading_animated span:nth-child(1) {
   animation: stampAnimation 0.5s ease 1s forwards;
 }
 
-.page_heading span:nth-child(2) {
+.page_heading_animated span:nth-child(2) {
   animation: stampAnimation 0.5s ease 2s forwards;
 }
 
-.page_heading span:nth-child(3) {
+.page_heading_animated span:nth-child(3) {
   animation: stampAnimation 0.5s ease 3s forwards;
 }
 
