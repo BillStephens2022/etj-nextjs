@@ -157,16 +157,17 @@ const FundraiserCard = ({
             Donate
           </Button>
         </div>
-        <footer className={classes.card_footer}>
-          {showConfirmation === fundraiser._id && (
-            <DeleteConfirmation
-              itemToBeDeleted="fundraiser"
-              onClick1={confirmDeleteFundraiser}
-              onClick2={cancelDeleteFundraiser}
-              id={fundraiser._id}
-            />
-          )}
-          {session && (
+        {session && (
+          <footer className={classes.card_footer}>
+            {showConfirmation === fundraiser._id && (
+              <DeleteConfirmation
+                itemToBeDeleted="fundraiser"
+                onClick1={confirmDeleteFundraiser}
+                onClick2={cancelDeleteFundraiser}
+                id={fundraiser._id}
+              />
+            )}
+
             <div className={classes.icon_button_div}>
               <IconButton
                 className={classes.delete_button}
@@ -181,8 +182,8 @@ const FundraiserCard = ({
                 <FaPencil />
               </IconButton>
             </div>
-          )}
-        </footer>
+          </footer>
+        )}
       </div>
       {modalOpen && (
         <FormModal
