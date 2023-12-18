@@ -1,7 +1,15 @@
 
 .container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    background-color: black;
+}
+
+.loading_header {
+    color: white;
+    font-size: 3rem;
 }
 .logo {
     border-radius: 50%;
