@@ -246,9 +246,9 @@ const Admin = () => {
               <IconButton className={classes.notification_icon} color="white">
                 <IoMdNotificationsOutline />
                 {messageCount > 0 && (
-                  <span className={classes.message_count_dot}>
+                  <p className={classes.message_count_dot}>
                     {messageCount}
-                  </span>
+                  </p>
                 )}
               </IconButton>
             </h3>

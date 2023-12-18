@@ -16,38 +16,38 @@ import class9 from "@/public/images/class9.png";
 import class10 from "@/public/images/class10.jpg";
 import classes from "@/components/layout/photoSlider.module.css";
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  const updatedStyle = {
-    ...style,
-    display: "block",
-    background: "transparent",
-    padding: "3px",
-    borderRadius: "50%",
-    width: "25px",
-    height: "25px",
-    zIndex: 2,
-    marginRight: "50px",
-  };
-  return <div className={className} style={updatedStyle} onClick={onClick} />;
-}
+// function SampleNextArrow(props) {
+//   const { className, style, onClick } = props;
+//   const updatedStyle = {
+//     ...style,
+//     display: "block",
+//     background: "transparent",
+//     padding: "3px",
+//     borderRadius: "50%",
+//     width: "25px",
+//     height: "25px",
+//     zIndex: 2,
+//     marginRight: "50px",
+//   };
+//   return <div className={className} style={updatedStyle} onClick={onClick} />;
+// }
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  const updatedStyle = {
-    ...style,
-    display: "block",
-    background: "transparent",
-    padding: "3px",
-    // borderRadius: "50%",
-    width: "25px",
-    height: "25px",
-    marginLeft: "50px",
-    zIndex: 2,
-  };
+// function SamplePrevArrow(props) {
+//   const { className, style, onClick } = props;
+//   const updatedStyle = {
+//     ...style,
+//     display: "block",
+//     background: "transparent",
+//     padding: "3px",
+//     // borderRadius: "50%",
+//     width: "25px",
+//     height: "25px",
+//     marginLeft: "50px",
+//     zIndex: 2,
+//   };
 
-  return <div className={className} style={updatedStyle} onClick={onClick} />;
-}
+//   return <div className={className} style={updatedStyle} onClick={onClick} />;
+// }
 
 export default function PhotoSlider() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -70,8 +70,8 @@ export default function PhotoSlider() {
     zIndex: 99,
     centerMode: true,
 
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    // nextArrow: <SampleNextArrow />,
+    // prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,

@@ -21,10 +21,18 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+.slick-dots li button::before {
+  content: "⚪" !important;
+}
+
+.slick-dots {
+  background-color: black;
+}
+
 
 @media (max-width: 1024px) {
   .slick-slider {
-    height: 325px;
+    max-height: 325px;
     margin-bottom: 35px;
   }
 }

@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.25rem;
   transition: all 0.3s ease;
   min-width: 50%;
   max-width: 95vw;
@@ -14,7 +14,7 @@
 
 .card:hover {
   box-shadow: 3px 3px 8px white;
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .card_inner_wrapper {
@@ -54,8 +54,8 @@
   letter-spacing: 0.06rem;
   font-weight: 900;
   padding: 0 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .card_main {
@@ -104,7 +104,8 @@
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 1rem 0;
   width: 100%;
   background-color: var(--primaryRed500);
 }
@@ -114,10 +115,10 @@
 }
 
 .icon_button_div {
-  margin-top: 1.75rem;
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
+  margin: 0 1rem;
 }
 
 @media (max-width: 1024px) {

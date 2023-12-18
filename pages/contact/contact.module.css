@@ -4,8 +4,6 @@
   text-align: center;
   min-height: 85vh;
   display: flex;
-  border-top: 1px solid var(--primaryGray500);
-  border-bottom: 1px solid var(--primaryGray500);
 }
 
 .contact_info_div {
@@ -15,8 +13,8 @@
   color: white;
   padding: 0.5rem;
   width: 20%;
-  background-color: var(--primaryGray900);
-  border-right: 1px solid var(--primaryGray500);
+  background-color: rgb(46, 46, 46, 0.5);
+  
 }
 
 .fb_icon_div,
