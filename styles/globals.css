@@ -12,6 +12,7 @@
   --primaryGray900: rgb(39, 36, 36);
   --linear-gradient-red: linear-gradient(135deg, #F5515F 0%, #a1051d 100%);
   --linear-gradient-silver: linear-gradient(135deg, #eee 0%, #333 100%);
+  --linear-gradient-silver300: linear-gradient(135deg, #eee 0%, #685f5f 100%);
   background-color: var(--primaryRed500);
 }
 

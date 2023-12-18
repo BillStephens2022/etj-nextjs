@@ -1,12 +1,12 @@
 .card {
   border: 2px solid var(--primaryGray500);
-  background-image: var(--linear-gradient-silver);
+  /* background-image: var(--linear-gradient-silver); */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   min-width: 50%;
   max-width: 95vw;
@@ -22,15 +22,15 @@
   flex-grow: 1;
   width: 100%;
   background-color: transparent;
-  border-top: 2px solid var(--primaryGray500);
-  border-bottom: 2px solid var(--primaryGray500);
+  /* border-top: 2px solid var(--primaryGray500);
+  border-bottom: 2px solid var(--primaryGray500); */
 }
 
 .card_header {
-  display: block;
+  display: flex;
   width: 100%;
   justify-content: center;
-  background-color: var(--primaryGray900);
+  background-color: var(--primaryRed500);
 }
 
 .banner_image {
@@ -39,13 +39,13 @@
   background-color: black;
   align-items: center;
   justify-content: center;
-  border-right: 2px solid var(--primaryGray500);
+  /* border-right: 2px solid var(--primaryGray500); */
 }
 
 .fundraiser_title {
   font-size: 2rem;
   font-family: "Aclonica", sans-serif;
-  background: -webkit-linear-gradient(#eee, #333);
+  background: -webkit-linear-gradient(#c5bfbf, #6f6767);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -53,6 +53,7 @@
   text-transform: capitalize;
   letter-spacing: 0.06rem;
   font-weight: 900;
+  padding: 0 0.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -95,7 +96,7 @@
   display: flex;
   justify-content: center;
   padding: 1rem 0;
-  background-color: var(--primaryGray900);
+  background-color: black;
   width: 100%;
 }
 
@@ -105,7 +106,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  background-color: black;
+  background-color: var(--primaryRed500);
 }
 
 .footer_icon {
