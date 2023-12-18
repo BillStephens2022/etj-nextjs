@@ -4,6 +4,8 @@
   text-align: center;
   min-height: 85vh;
   display: flex;
+  border-top: 1px solid var(--primaryGray500);
+  border-bottom: 1px solid var(--primaryGray500);
 }
 
 .contact_info_div {
@@ -13,16 +15,17 @@
   color: white;
   padding: 0.5rem;
   width: 20%;
-  background-color: black;
+  background-color: var(--primaryGray900);
+  border-right: 1px solid var(--primaryGray500);
 }
 
-.fb_icon_div, .email_icon_div {
+.fb_icon_div,
+.email_icon_div {
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-right: 0.5rem;
-  
 }
 
 .form_div {
@@ -31,11 +34,10 @@
   align-items: center;
   padding: 0.5rem;
   width: 60%;
-  background-color: whitesmoke;
+  background-color: black;
 }
 
 .fb_icon {
-  background-color: black;
   display: inline-flex;
   align-items: center;
   margin-right: 0.5rem;
@@ -43,11 +45,15 @@
   color: steelblue;
 }
 
+.fb_text {
+  color: white;
+}
+
 .note_heading {
   margin-top: 1rem;
   font-size: 1.5rem;
   font-weight: 900;
-  color: steelblue;
+  color: white;
   text-shadow: 2px 2px 2px black;
 }
 
@@ -55,6 +61,7 @@
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form_group {
@@ -65,7 +72,7 @@
 }
 
 .label {
-  color: black;
+  color: white;
   font-size: 1rem;
   font-weight: 900;
   margin-bottom: 0.5rem;
@@ -74,7 +81,7 @@
 .input,
 .textarea {
   padding: 0.5rem;
-  width: 15rem;
+  width: 75%;
   border-radius: 0.5rem;
 }
 
@@ -88,9 +95,7 @@
 
 @media (max-width: 1024px) {
   .main {
-    
     justify-content: center;
-    
   }
   .contact_info_div {
     width: 40%;
@@ -104,7 +109,7 @@
 @media (max-width: 767px) {
   .main {
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
   .contact_info_div {

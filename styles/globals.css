@@ -11,10 +11,19 @@
   --primaryGray500: #6c757d;
   --primaryGray900: rgb(39, 36, 36);
   --linear-gradient-red: linear-gradient(135deg, #F5515F 0%, #a1051d 100%);
+  --linear-gradient-silver: linear-gradient(135deg, #eee 0%, #333 100%);
   background-color: var(--primaryRed500);
 }
 
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
+}
+
+
+@media (max-width: 1024px) {
+  .slick-slider {
+    height: 325px;
+    margin-bottom: 35px;
+  }
 }

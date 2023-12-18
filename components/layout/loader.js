@@ -5,7 +5,7 @@ import classes from "@/components/layout/loader.module.css";
 const Loader = () => {
   return (
     <div className={classes.container}>
-      <h2>Loading!!</h2>
+      <h2 className={classes.loading_header}>Loading!!</h2>
       <Image
         src={logo}
         alt="logo"

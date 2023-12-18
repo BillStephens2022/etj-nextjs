@@ -1,0 +1,150 @@
+.card {
+  border: 2px solid var(--primaryGray500);
+  background-image: var(--linear-gradient-silver);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.6rem;
+  transition: all 0.3s ease;
+  min-width: 50%;
+  max-width: 95vw;
+}
+
+.card:hover {
+  box-shadow: 3px 3px 8px white;
+  transform: scale(1.02);
+}
+
+.card_inner_wrapper {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  background-color: transparent;
+  border-top: 2px solid var(--primaryGray500);
+  border-bottom: 2px solid var(--primaryGray500);
+}
+
+.card_header {
+  display: block;
+  width: 100%;
+  justify-content: center;
+  background-color: var(--primaryGray900);
+}
+
+.banner_image {
+  display: flex;
+  padding: 1rem;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--primaryGray500);
+}
+
+.fundraiser_title {
+  font-size: 2rem;
+  font-family: "Aclonica", sans-serif;
+  background: -webkit-linear-gradient(#eee, #333);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100%;
+  text-transform: capitalize;
+  letter-spacing: 0.06rem;
+  font-weight: 900;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.fundraiser_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.fundraiser_detail {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  margin: 0.75rem 0;
+  font-size: 1rem;
+  color: white;
+  letter-spacing: 0.1rem;
+  line-height: 1.75;
+  padding: 0 1.5rem;
+}
+
+.link {
+  z-index: 1;
+  text-decoration: none;
+  margin: 1rem;
+  width: 30vw;
+}
+
+.donate_button_div {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  background-color: var(--primaryGray900);
+  width: 100%;
+}
+
+.card_footer {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background-color: black;
+}
+
+.footer_icon {
+  margin-right: 0.25rem;
+}
+
+.icon_button_div {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.2rem;
+    flex-direction: column;
+  }
+  .card_inner_wrapper {
+    flex-direction: column;
+  }
+  .banner_image {
+    padding: 1rem 0;
+    background-color: var(--primaryGray900);
+  }
+  .fundraiser_title {
+    background: -webkit-linear-gradient(#c1baba, #535252);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
