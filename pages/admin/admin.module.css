@@ -45,18 +45,18 @@
 
 .warning_wrapper {
  text-align: center;
- color: var(--primaryRed500);
+ color: #d70827;
  font-weight: 900;
  letter-spacing: 0.1rem;
 }
 
 .table {
   font-family: "Lato", sans-serif;
-  color: var(--primaryGray900);
+  color: white;
   font-weight: 900;
-  background-color: var(--primaryGray500);
+  background-color: var(--primaryGray900);
   padding: 1rem;
-  border: 0.5rem solid white;
+  border: 2px solid white;
   border-radius: 0.5rem;
 }
 
