@@ -1,16 +1,15 @@
 .card {
-  border-radius: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  padding: 2rem 2rem 0.5rem 2rem;
-  background-color: var(--primaryRed500);
+  border: 2px solid var(--primaryGray500);
+  background-image: var(--linear-gradient-silver);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  width: 25rem;
-  margin: 0.6rem;
+  width: 100%;
+  margin-bottom: 0.6rem;
   transition: all 0.3s ease;
+  min-width: 50%;
+  max-width: 95vw;
 }
 
 .card:hover {
@@ -18,22 +17,52 @@
   transform: scale(1.02);
 }
 
+.card_inner_wrapper {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  background-color: transparent;
+  border-top: 2px solid var(--primaryGray500);
+  border-bottom: 2px solid var(--primaryGray500);
+}
+
 .card_header {
   display: block;
+  width: 100%;
   justify-content: center;
-  padding-top: 0.1rem;
+  background-color: var(--primaryGray900);
+}
+
+.banner_image {
+  display: flex;
+  padding: 1rem;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--primaryGray500);
 }
 
 .fundraiser_title {
   font-size: 2rem;
-  font-family: "Aclonica", sans-serif;;
-  text-shadow: 1px 1px 2px white;
-  color: black;
+  font-family: "Aclonica", sans-serif;
+  background: -webkit-linear-gradient(#eee, #333);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100%;
   text-transform: capitalize;
   letter-spacing: 0.06rem;
   font-weight: 900;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.card_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .fundraiser_details {
@@ -42,7 +71,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0;
 }
 
 .fundraiser_detail {
@@ -52,7 +80,8 @@
   font-size: 1rem;
   color: white;
   letter-spacing: 0.1rem;
-  line-height: 1.5;
+  line-height: 1.75;
+  padding: 0 1.5rem;
 }
 
 .link {
@@ -62,56 +91,21 @@
   width: 30vw;
 }
 
-.cardFooter {
+.donate_button_div {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  background-color: var(--primaryGray900);
   width: 100%;
-  height: 2rem;
+}
+
+.card_footer {
   color: white;
-  text-align: center;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0.25rem 0;
-}
-
-.card_button {
-  border: none;
-  padding: 12px 24px;
-  border-radius: 24px;
-  font-size: 12px;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.button_outline {
-  background: transparent;
-  color: rgba(0, 212, 255, 0.9);
-  border: 1px solid rgba(0, 212, 255, 0.6);
-  transition: all 0.3s ease;
-}
-
-.button_outline:hover {
-  transform: scale(1.08);
-  color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
-}
-
-.button_fill {
-  background: rgba(0, 212, 255, 0.9);
-  color: rgba(255, 255, 255, 0.95);
-  filter: drop-shadow(0);
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.button_fill:hover {
-  transform: scale(1.08);
-  border-color: rgba(255, 255, 255, 0.9);
-  filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
-  transition: all 0.3s ease;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background-color: black;
 }
 
 .footer_icon {
@@ -120,17 +114,31 @@
 
 .icon_button_div {
   margin-top: 1.75rem;
-  width: 100%;
   display: flex;
+  flex-grow: 1;
   justify-content: space-between;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .card {
     margin-left: 0;
     margin-right: 0;
-    min-width: 18.5rem;
-    max-width: 18.5rem;
+    margin-bottom: 1.2rem;
+    flex-direction: column;
+  }
+  .card_inner_wrapper {
+    flex-direction: column;
+  }
+  .banner_image {
+    padding: 1rem 0;
+    background-color: var(--primaryGray900);
+  }
+  .fundraiser_title {
+    background: -webkit-linear-gradient(#c1baba, #535252);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100%;
   }
 }
 
@@ -138,107 +146,5 @@
   .card {
     margin-left: 0;
     margin-right: 0;
-    min-width: 17rem;
-    max-width: 17rem;
   }
 }
-
-/* @media only screen and (max-width: 2000px) {
-  .card_button {
-    padding: 0.5rem;
-    width: 47%;
-    height: 3rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-@media only screen and (max-width: 1400px) {
-  .card {
-    min-width: 25%;
-    max-width: 25%;
-    margin: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .card_button {
-    padding: 0.5rem;
-    width: 47%;
-    height: 3rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .card {
-    min-width: 38%;
-    max-width: 38%;
-    margin: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-  .card_button {
-    padding: 0.5rem;
-    width: 47%;
-    height: 3rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-
-
-@media only screen and (max-width: 500px) {
-  .card {
-    min-width: 19rem;
-    max-width: 19rem;
-  }
-}
-
-@media only screen and (max-width: 380px) {
-  .card {
-    min-width: 18.25rem;
-    max-width: 18.25rem;
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .card {
-    min-width: 16rem;
-    max-width: 16rem;
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  .title {
-    font-size: 1.7rem;
-  }
-  .card {
-    min-width: 12rem;
-  }
-
-  .banner_image {
-    height: 200px;
-  }
-
-  .fundraiser_title {
-    font-size: 1.5rem;
-  }
-
-  .fundraiser_aired {
-    font-size: 1rem;
-  }
-
-  .card_button {
-    padding: 6px 12px;
-    letter-spacing: 1px;
-    margin: 0.25rem;
-  }
-
-  .footer_icon {
-    display: none;
-  }
-} */

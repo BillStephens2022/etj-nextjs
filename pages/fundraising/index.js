@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { getFundraisers } from "@/lib/api";
 import useSWR from "swr";
 import Header from "@/components/layout/header";
-import FundraiserCard2 from "@/components/layout/fundraiserCard2";
+import FundraiserCard from "@/components/layout/fundraiserCard";
 import Button from "@/components/ui/Button";
 import Loader from "@/components/layout/loader";
 import classes from "@/pages/fundraising/fundraising.module.css";
@@ -57,7 +57,7 @@ const Fundraising = ({ props }) => {
         </Button>
         <div className={classes.fundraisers_div}>
           {fundraisers.map((fundraiser) => (
-            <FundraiserCard2
+            <FundraiserCard
               key={fundraiser._id}
               fundraisers={fundraisers}
               fundraiser={fundraiser}

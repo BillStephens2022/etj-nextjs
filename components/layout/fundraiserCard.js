@@ -79,7 +79,6 @@ const FundraiserCard = ({
   };
 
   const imageStyle = {
-    borderRadius: "0.5rem",
     objectFit: "cover",
   };
 
@@ -89,40 +88,44 @@ const FundraiserCard = ({
   };
 
   const videoSources = {
-    mp4: 'video/mp4', // Example: MP4 format
-    webm: 'video/webm', // Example: WebM format
-    mov: 'video/mov'
+    mp4: "video/mp4", // Example: MP4 format
+    webm: "video/webm", // Example: WebM format
+    mov: "video/mov",
   };
 
   const renderVideoSources = () => {
     return Object.keys(videoSources).map((format) => (
-      <source key={format} src={`${fundraiser.imageLink}`} type={videoSources[format]} />
+      <source
+        key={format}
+        src={`${fundraiser.imageLink}`}
+        type={videoSources[format]}
+      />
     ));
   };
 
   function generateThumbnailURL(url) {
-    const parts = url.split('/');
+    const parts = url.split("/");
     const fileWithExtension = parts[parts.length - 1]; // Get the last part of the URL
-    const publicId = fileWithExtension.split('.')[0]; // Remove the extension
+    const publicId = fileWithExtension.split(".")[0]; // Remove the extension
     const thumbnailUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/video/upload/e_preview:duration_0/${publicId}.jpg`;
     return thumbnailUrl;
   }
 
   const posterUrl = generateThumbnailURL(fundraiser.imageLink);
 
-
   return (
     <>
       <div className={classes.card} key={fundraiser._id}>
+        <div className={classes.card_header}>
+          <h3 className={classes.fundraiser_title}>{fundraiser.title}</h3>
+        </div>
         <div className={classes.card_inner_wrapper}>
           {isImage(fundraiser.imageLink) ? (
-            <div
-              className={classes.banner_image}
-            >
+            <div className={classes.banner_image}>
               <Image
                 src={fundraiser.imageLink}
-                width={250}
-                height={300}
+                width={300}
+                height={360}
                 quality={100}
                 style={imageStyle}
                 alt="Fundraiser Image"
@@ -131,15 +134,13 @@ const FundraiserCard = ({
             </div>
           ) : (
             <div className={classes.banner_image}>
-                <video width={250} height={300} controls poster={posterUrl}>
+              <video width={250} height={300} controls poster={posterUrl}>
                 {renderVideoSources()}
                 Your browser does not support the video tag.
               </video>
             </div>
           )}
-          <div className={classes.card_header}>
-            <h3 className={classes.fundraiser_title}>{fundraiser.title}</h3>
-          </div>
+
           <div className={classes.card_main}>
             <div className={classes.fundraiser_details}>
               <p className={classes.fundraiser_detail}>
@@ -147,15 +148,16 @@ const FundraiserCard = ({
               </p>
             </div>
           </div>
-
-          <footer className={classes.cardFooter}>
-            <Button
-              backgroundImage="var(--linear-gradient-red)"
-              href="https://www.mightycause.com/story/Iasxuf"
-            >
-              Donate
-            </Button>
-          </footer>
+        </div>
+        <div className={classes.donate_button_div}>
+          <Button
+            backgroundImage="var(--linear-gradient-red)"
+            href="https://www.mightycause.com/story/Iasxuf"
+          >
+            Donate
+          </Button>
+        </div>
+        <footer className={classes.card_footer}>
           {showConfirmation === fundraiser._id && (
             <DeleteConfirmation
               itemToBeDeleted="fundraiser"
@@ -180,7 +182,7 @@ const FundraiserCard = ({
               </IconButton>
             </div>
           )}
-        </div>
+        </footer>
       </div>
       {modalOpen && (
         <FormModal
