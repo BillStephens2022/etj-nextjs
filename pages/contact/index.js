@@ -55,8 +55,8 @@ function Contact() {
                 }}
               />
             
-            <FaRegHandPointLeft style={{ marginLeft: "8px", marginRight: "5px" }} />
-            <p>Check out our Facebook Page</p>
+            <FaRegHandPointLeft style={{ marginLeft: "8px", marginRight: "5px", color: "white" }} />
+            <p className={classes.fb_text}>Check out our Facebook Page</p>
             </Link>
           </div>
           <div className={classes.email_icon_div}>
