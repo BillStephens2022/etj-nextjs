@@ -8,6 +8,7 @@
   padding: 1rem;
   font-size: 1rem;
   width: 75%;
+  max-height: 100vh;
   border: 0.5rem solid var(--primaryGray900);
   border-radius: 0.5rem;
   text-align: center;
@@ -56,19 +57,29 @@
   align-items: center;
 }
 
+.imagePreview_div {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .imagePreview {
+  display: flex;
+  margin: 0.5rem auto;
+  justify-content: center;
   width: 30%;
-  margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
 .upload_button {
+  flex: 1;
   color: white;
   background-image: var(--linear-gradient-red);
   border: none;
   border-radius: 5px;
-  margin: 0.5rem 0;
+  margin: 0.5rem 1rem;
   padding: 0.5rem;
-  width: 10rem;
+  max-width: 8rem;
   height: 3rem;
   box-shadow: 3px 3px 2px var(--primaryGray500);
   

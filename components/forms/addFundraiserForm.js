@@ -1,7 +1,8 @@
-import { Fragment, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import { CldUploadWidget } from "next-cloudinary";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import { editFundraiser, createFundraiser } from "@/lib/api";
 import Button from "@/components/ui/Button";
 import classes from "@/components/forms/addFundraiser.module.css";
@@ -14,7 +15,7 @@ const initialFormData = {
   imageLink: "",
 };
 
-const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
+const AddFundraiserForm = ({ closeModal, selectedFundraiser = null }) => {
   const [formData, setFormData] = useState(initialFormData);
   const [uploadedImageUrl, setUploadedImageUrl] = useState("");
   const router = useRouter(); // Initialize the useRouter hook
@@ -124,15 +125,19 @@ const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
           <div className={classes.form_group}>
             <div className={classes.upload_and_preview}>
               {uploadedImageUrl && (
-                <div>
+                <div className={classes.imagePreview_div}>
                   <label htmlFor="imageLink" className={classes.label}>
                     Fundraiser Image Preview
                   </label>
-                  <img
-                    src={uploadedImageUrl}
-                    alt="Uploaded Fundraiser Image"
-                    className={classes.imagePreview}
-                  />
+                  <div className={classes.imagePreview}>
+                    <Image
+                      src={uploadedImageUrl}
+                      layout="responsive" // Retains aspect ratio and resizes based on container
+                      width={125} 
+                      height={75}
+                      alt="Uploaded Fundraiser Image"
+                    />
+                  </div>
                 </div>
               )}
               <CldUploadWidget
@@ -169,4 +174,4 @@ const AddFundRaiserForm = ({ closeModal, selectedFundraiser = null }) => {
   );
 };
 
-export default AddFundRaiserForm;
+export default AddFundraiserForm;

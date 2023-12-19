@@ -84,7 +84,6 @@ const Admin = () => {
   }
 
   const openModal = (type) => {
-    console.log("Opening modal...");
     setModalOpen(true);
     setFormType(type);
   };

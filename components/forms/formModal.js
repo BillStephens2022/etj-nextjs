@@ -24,7 +24,6 @@ const FormModal = ({ formType, closeModal, selectedFundraiser }) => {
         formTitle = "Change Password"
     break;  
     case "addFundraiser":
-      console.log("Switch statement: selectedFundraiser");
       formComponent = <AddFundraiserForm closeModal={closeModal} selectedFundraiser={selectedFundraiser} />;
       formTitle = selectedFundraiser ? "Edit Fundraiser" : "Add Fundraiser"
       break;
