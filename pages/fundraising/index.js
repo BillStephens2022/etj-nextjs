@@ -1,44 +1,27 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { getFundraisers } from "@/lib/api";
-import useSWR from "swr";
 import Header from "@/components/layout/header";
 import FundraiserCard from "@/components/layout/fundraiserCard";
 import Button from "@/components/ui/Button";
 import Loader from "@/components/layout/loader";
 import classes from "@/pages/fundraising/fundraising.module.css";
 
-const Fundraising = ({ props }) => {
+const Fundraising = ({ fundraisers }) => {
   const { data: session } = useSession();
-  const [fundraisers, setFundraisers] = useState(props?.fundraisers || []);
-  const { data, error } = useSWR(
-    "/api/fundraiser/",
-    (url) => fetch(url).then((res) => res.json()),
-    { refreshInterval: 1000 }
-  );
-
+  const [localFundraisers, setLocalFundraisers] = useState(fundraisers || []);
 
   useEffect(() => {
-    if (error) {
-      console.error("Error fetching fundraisers:", error);
-    }
-    if (data) {
-      const sortedFundraisers = data.sort(
-        (a, b) => new Date(b.fundraiserDate) - new Date(a.fundraiserDate)
-      );
-      console.log(sortedFundraisers);
-      setFundraisers(sortedFundraisers);
-    }
-  }, [data, error]);
+   const sortedFundraisers = fundraisers.sort(
+      (a, b) => new Date(b.fundraiserDate) - new Date(a.fundraiserDate)
+    );
+    setLocalFundraisers(sortedFundraisers);
+  }, [fundraisers]);
 
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  if (!data) {
+  if (!localFundraisers || localFundraisers.length === 0) {
     return (
       <>
-        <Header />
+        <Header pageTitle="Fundraising" />
         <Loader />
       </>
     );
@@ -50,19 +33,19 @@ const Fundraising = ({ props }) => {
 
       <div className={classes.main}>
         <Button
-          backgroundImage="var(--linear-gradient-red"
+          backgroundImage="var(--linear-gradient-red)"
           href="https://www.mightycause.com/story/Iasxuf"
         >
           Donate
         </Button>
         <div className={classes.fundraisers_div}>
-          {fundraisers.map((fundraiser) => (
+          {localFundraisers.map((fundraiser) => (
             <FundraiserCard
               key={fundraiser._id}
-              fundraisers={fundraisers}
+              fundraisers={localFundraisers}
               fundraiser={fundraiser}
               session={session}
-              setFundraisers={setFundraisers}
+              setFundraisers={setLocalFundraisers}
             />
           ))}
           {/* {fundraisers.length > 0 ? (
