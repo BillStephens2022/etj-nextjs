@@ -1,78 +1,94 @@
 .form_container {
-    display: flex;
-    justify-content: center;
-  }
-  
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  padding: 1rem;
+  font-size: 1rem;
+  width: 50%;
+  border: 2px solid var(--primaryGray900);
+  text-align: center;
+  background-color: whitesmoke;
+  color: var(--primaryRed500);
+}
+
+.form_header {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.form_group {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+  text-align: right;
+  flex: 1;
+}
+
+.input {
+  height: 2.25rem;
+  flex: 2;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  margin: 0.5rem;
+  border: 1px solid black;
+}
+
+.input:focus {
+  border: 3px solid black;
+}
+
+.successMessage_p {
+  color: chartreuse;
+  font-size: 2rem;
+}
+
+.errorMessage_p {
+  color: white;
+  background-color: red;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 1024px) {
   .form {
-    padding: 1rem;
-    font-size: 1rem;
-    width: 33.33%;
-    border: 2px solid var(--primaryGray900);
-    text-align: center;
-    background-color: whitesmoke;
-    color: var(--primaryRed500);
+    width: 80%;
   }
-  
-  .form_header {
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    color: white;
-  }
-  
   .label {
-    font-size: 2rem;
-    margin-right: 0.5rem;
+    font-size: 1.25rem;
   }
-  
-  .input {
-      height: 2.25rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 5px;
-      margin: 0.5rem;
-      border: 1px solid black;
+}
+
+@media only screen and (max-width: 767px) {
+  .form {
+    width: 98%;
   }
 
-  .input:focus {
-    border: 3px solid black;
+  .form_group {
+    display: flex;
+    flex-direction: column;
   }
-  
-  .successMessage_p {
-    color: chartreuse;
-    font-size: 2rem;
+
+  .form_header {
+    font-size: 1.5rem;
   }
-  
-  .errorMessage_p {
-    color: white;
-    background-color: red;
-    font-size: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+
+  .label {
+    font-size: 1.25rem;
   }
-  
-  @media only screen and (max-width: 767px) {
-    .form_container {
-      width: 98%;
-      margin: auto;
-    }
-    .form {
-        width: 86%;
-    }
-  
-    .form_group {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .form_header, .label {
-      font-size: 1.5rem;
-    }
-  
-    .input {
-      margin: .5rem auto;
-      width: 75%;
-    }
-  
-   
+
+  .input {
+    margin: 0.5rem auto;
+    width: 75%;
+    
   }
+}

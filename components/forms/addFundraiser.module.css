@@ -24,6 +24,7 @@
 
 .label {
   font-size: 1rem;
+  color: var(--primaryRed500);
   display: block;
   margin-bottom: 0.25rem;
   font-weight: 700;

@@ -74,7 +74,7 @@ const ChangePasswordForm = ({ closeModal }) => {
       <h2 className={classes.form_header}>Change Password</h2>
       <div className={classes.form_container}>
         <form className={classes.form} onSubmit={handleSubmitPasswordChange}>
-          <div>
+          <div className={classes.form_group}>
             <label htmlFor="oldPassword" className={classes.label}>
               Old Password
             </label>
@@ -88,7 +88,7 @@ const ChangePasswordForm = ({ closeModal }) => {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className={classes.form_group}>
             <label htmlFor="newPassword" className={classes.label}>
               New Password
             </label>
@@ -102,7 +102,7 @@ const ChangePasswordForm = ({ closeModal }) => {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className={classes.form_group}>
             <label htmlFor="newPassword" className={classes.label}>
               Confirm New Password
             </label>
