@@ -25,6 +25,10 @@ body {
   content: "⚪" !important;
 }
 
+.slick-arrow {
+  display: none !important;
+}
+
 .slick-dots {
   background-color: black;
 }

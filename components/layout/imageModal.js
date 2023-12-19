@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import classes from "@/components/layout/imageModal.module.css";
 
 const ImageModal = ({ imageUrl, onClose }) => {
@@ -20,7 +21,13 @@ const ImageModal = ({ imageUrl, onClose }) => {
     return (
       <div className={classes.image_modal} onClick={onClose}>
         <div ref={modalRef} className={classes.image_content}>
-          <img src={imageUrl} alt="full-size Image" className={classes.modal_image} />
+        <Image
+          src={imageUrl}
+          alt="Image"
+          width={600}
+          height={1000}
+          className={classes.image}
+        />
         </div>
       </div>
     );

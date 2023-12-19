@@ -1,19 +1,22 @@
 .image_modal {
   position: fixed;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
-  width: 75%;
-  max-width: 90vw; /* Adjust the maximum width as needed */
-  height: 90%;
-  max-height: 600px; /* Adjust the maximum height as needed */
+  max-width: 98vw; 
+  height: auto;
   border-radius: 8px;
-  padding: 20px;
   overflow: hidden;
   z-index: 1000;
   text-align: center;
   animation: fadeIn 0.5s ease;
+}
+
+.image {
+  max-width: 99vw;
+  max-height: 99vh;
+  object-fit: contain;
 }
 
 @keyframes fadeIn {
@@ -43,35 +46,3 @@
   }
 }
 
-.modal_image {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: cover;
-  animation: fadeIn 0.5s ease;
-}
-
-@media (max-width: 1024px) {
-    .image_modal {
-        top: 50%;
-        width: 90%;
-        max-width: 90%;
-        height: 90%;
-        max-width: 90%;
-        animation: fadeIn 0.5s ease;
-    }
-
-   
-}
-
-@media (max-width: 767px) {
-    .image_modal {
-        top: 50%;
-        width: 99%;
-        max-width: 99%;
-        height: 99%;
-        max-width: 99%;
-        animation: fadeIn 0.5s ease;
-    }
-
-   
-}
