@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
+import useSWR from "swr";
 import { getFundraisers } from "@/lib/api";
 import Header from "@/components/layout/header";
 import FundraiserCard from "@/components/layout/fundraiserCard";
@@ -11,14 +12,24 @@ const Fundraising = ({ fundraisers }) => {
   const { data: session } = useSession();
   const [localFundraisers, setLocalFundraisers] = useState(fundraisers || []);
 
-  useEffect(() => {
-   const sortedFundraisers = fundraisers.sort(
-      (a, b) => new Date(b.fundraiserDate) - new Date(a.fundraiserDate)
-    );
-    setLocalFundraisers(sortedFundraisers);
-  }, [fundraisers]);
+  const { data: updatedFundraisers, error } = useSWR("/api/fundraiser/", getFundraisers, {
+    refreshInterval: 1000,
+  });
 
-  if (!localFundraisers || localFundraisers.length === 0) {
+  useEffect(() => {
+    if (updatedFundraisers) {
+      const sortedFundraisers = updatedFundraisers.sort(
+        (a, b) => new Date(b.fundraiserDate) - new Date(a.fundraiserDate)
+      );
+      setLocalFundraisers(sortedFundraisers);
+    }
+  }, [updatedFundraisers]);
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!updatedFundraisers) {
     return (
       <>
         <Header pageTitle="Fundraising" />
@@ -60,6 +71,7 @@ const Fundraising = ({ fundraisers }) => {
 };
 
 export async function getStaticProps() {
+  console.log("executing getStaticProps for fundraisers!");
   let fundraisers = [];
 
   try {
