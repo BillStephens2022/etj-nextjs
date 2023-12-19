@@ -104,52 +104,52 @@ export default function PhotoSlider() {
     <Slider {...settings}>
       <div class={classes.slide} onClick={() => handleImageClick(class1.src)}>
         <h3>
-          <Image src={class1} width={350} height={300} />
+          <Image src={class1} alt="class photo" width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class2.src)}>
         <h3>
-          <Image src={class2} width={300} height={300} />
+          <Image src={class2} alt="class photo" width={300} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class3.src)}>
         <h3>
-          <Image src={class3} width={350} height={300} />
+          <Image src={class3} alt="class photo" width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class4.src)}>
         <h3>
-          <Image src={class4} width={350} height={300} />
+          <Image src={class4} alt="class photo" width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class5.src)}>
         <h3>
-          <Image src={class5} width={350} height={300} />
+          <Image src={class5} alt="class photo" width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class6.src)}>
         <h3>
-          <Image src={class6} width={350} height={300} />
+          <Image src={class6} alt="class photo" width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class7.src)}>
         <h3>
-          <Image src={class7} width={350} height={300} />
+          <Image src={class7} alt="class photo" width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class8.src)}>
         <h3>
-          <Image src={class8} width={350} height={300} />
+          <Image src={class8} alt="class photo" width={350} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class9.src)}>
         <h3>
-          <Image src={class9} width={300} height={300} />
+          <Image src={class9} alt="class photo" width={300} height={300} />
         </h3>
       </div>
       <div class={classes.slide} onClick={() => handleImageClick(class10.src)}>
         <h3>
-          <Image src={class10} width={300} height={300} />
+          <Image src={class10} alt="class photo" width={300} height={300} />
         </h3>
       </div>
     </Slider>
