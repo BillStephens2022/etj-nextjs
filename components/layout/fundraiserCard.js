@@ -97,11 +97,22 @@ const FundraiserCard = ({
     return Object.keys(videoSources).map((format) => (
       <source
         key={format}
-        src={`${fundraiser.imageLink}`}
+        src={`${convertToSecureURL(fundraiser.imageLink)}`}
         type={videoSources[format]}
       />
     ));
   };
+
+  function convertToSecureURL(url) {
+    // Check if the URL starts with 'http://' (case insensitive)
+    if (url.match(/^http:\/\//i)) {
+      // Replace 'http://' with 'https://'
+      return url.replace(/^http:\/\//i, 'https://');
+    }
+  
+    // If the URL is already using HTTPS or doesn't start with HTTP, return the original URL
+    return url;
+  }
 
   function generateThumbnailURL(url) {
     const parts = url.split("/");
@@ -123,7 +134,7 @@ const FundraiserCard = ({
           {isImage(fundraiser.imageLink) ? (
             <div className={classes.banner_image}>
               <Image
-                src={fundraiser.imageLink}
+                src={convertToSecureURL(fundraiser.imageLink)}
                 width={300}
                 height={360}
                 quality={100}
