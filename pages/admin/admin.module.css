@@ -104,7 +104,7 @@
 
 .message_count_dot {
   position: absolute;
-  top: -0.5rem;
+  top: -1rem;
   right: -0.1rem;
   background-color: var(--primaryRed500);
   color: white;

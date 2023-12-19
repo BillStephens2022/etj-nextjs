@@ -15,7 +15,6 @@ function Contact() {
   // state to render a success message to the user if their message submission was successful
   const [successMessage, setSuccessMessage] = useState(false);
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -28,7 +27,7 @@ function Contact() {
     event.preventDefault();
     console.log("form submitted: ", formData);
     await createMessage(formData);
-    setFormData({name: "", messageText: ""});
+    setFormData({ name: "", messageText: "" });
     setSuccessMessage(true); // Set success message visibility to true after form submission
     setTimeout(() => {
       setSuccessMessage(false); // Hide success message after 3 seconds
@@ -54,16 +53,22 @@ function Contact() {
                   borderRadius: "5px",
                 }}
               />
-            
-            <FaRegHandPointLeft style={{ marginLeft: "8px", marginRight: "5px", color: "white" }} />
-            <p className={classes.fb_text}>Check out our Facebook Page</p>
+
+              <FaRegHandPointLeft
+                style={{
+                  marginLeft: "8px",
+                  marginRight: "5px",
+                  color: "white",
+                }}
+              />
+              <p className={classes.fb_text}>Check out our Facebook Page</p>
             </Link>
           </div>
           <div className={classes.email_icon_div}>
-              <FaEnvelope
-                style={{ width: "25px", height: "25px", marginRight: "5px" }}
-              />
-              <p>admin@enterthejohnsons.org</p>
+            <FaEnvelope
+              style={{ width: "25px", height: "25px", marginRight: "5px" }}
+            />
+            <p>admin@enterthejohnsons.org</p>
           </div>
         </div>
         <div className={classes.form_div}>
@@ -106,9 +111,10 @@ function Contact() {
               Submit
             </Button>
             {successMessage && (
-            <p className={classes.successMessage}>Message sent successfully!</p>
-          )}
-
+              <p className={classes.successMessage}>
+                Message sent successfully!
+              </p>
+            )}
           </form>
         </div>
       </main>
