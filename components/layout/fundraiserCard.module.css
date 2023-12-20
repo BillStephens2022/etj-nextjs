@@ -1,11 +1,10 @@
 .card {
-  border: 2px solid var(--primaryGray500);
-  /* background-image: var(--linear-gradient-silver); */
+  border: 7px solid var(--primaryRed500);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 96%;
   margin-bottom: 2.25rem;
   transition: all 0.3s ease;
   min-width: 50%;
@@ -22,8 +21,6 @@
   flex-grow: 1;
   width: 100%;
   background-color: transparent;
-  /* border-top: 2px solid var(--primaryGray500);
-  border-bottom: 2px solid var(--primaryGray500); */
 }
 
 .card_header {
@@ -35,11 +32,10 @@
 
 .banner_image {
   display: flex;
+  width: 50%;
   padding: 1rem;
   background-color: black;
-  align-items: center;
   justify-content: center;
-  /* border-right: 2px solid var(--primaryGray500); */
 }
 
 .fundraiser_title {
@@ -71,7 +67,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 50vw;
 }
 
 .fundraiser_detail {
@@ -130,10 +126,13 @@
   }
   .card_inner_wrapper {
     flex-direction: column;
+    align-items: center;
   }
   .banner_image {
     padding: 1rem 0;
-    background-color: var(--primaryGray900);
+    background-color: black;
+    padding: 0.75rem;
+    width: 95%;
   }
   .fundraiser_title {
     background: -webkit-linear-gradient(#c1baba, #535252);
@@ -142,11 +141,36 @@
     -webkit-text-fill-color: transparent;
     background-size: 100%;
   }
+  .fundraiser_details {
+    width: 100%;
+  }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .card {
     margin-left: 0;
     margin-right: 0;
+  }
+  .fundraiser_title {
+    font-size: 1.5rem;
+  }
+  .banner_image {
+    width: 93%;
+    padding: 0.5rem;
+  }
+  .fundraiser_detail {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .banner_image {
+    width: 93%;
+  }
+  .fundraiser_title {
+    font-size: 1.5rem;
+  }
+  .fundraiser_detail {
+    font-size: 0.75rem;
   }
 }

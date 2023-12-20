@@ -127,6 +127,7 @@ const FundraiserCard = ({
             <div className={classes.banner_image}>
               <Image
                 src={convertToSecureURL(fundraiser.imageLink)}
+                layout="responsive"
                 width={300}
                 height={360}
                 quality={100}
