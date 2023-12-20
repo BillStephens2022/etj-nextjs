@@ -58,7 +58,6 @@ const AddFundraiserForm = ({ closeModal, selectedFundraiser = null }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("form submitted: ", formData);
     if (selectedFundraiser) {
       // Call editFundraiser if a selectedFundraiser was passed into the modal (this would only occur if user chose to edit an exising episode)
       await editFundraiser(selectedFundraiser._id, formData);

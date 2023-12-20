@@ -71,7 +71,6 @@ const Fundraising = ({ fundraisers }) => {
 };
 
 export async function getStaticProps() {
-  console.log("executing getStaticProps for fundraisers!");
   let fundraisers = [];
 
   try {

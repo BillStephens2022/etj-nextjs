@@ -15,7 +15,6 @@ const handler = async (req, res) => {
   if (req.method === "POST") {
     
     const session = await getServerSession(req, res);
-    console.log("SESSION: ", session);
 
     if (!session) {
       res.status(401).json({ message: "Not Authenticated to Add a Fundraiser!" });
@@ -30,8 +29,6 @@ const handler = async (req, res) => {
         imageLink,
         fundraiserDate: new Date(fundraiserDate),
       });
-      console.log(newFundraiser);
-
       await newFundraiser.save();
       res.status(201).json({ message: "Fundraiser added successfully" });
     } catch (error) {

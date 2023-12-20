@@ -4,8 +4,6 @@ import dbConnect from "@/lib/db";
 import User from "@/models/User";
 import { verifyPassword } from "@/lib/auth";
 
-console.log("Model imported in [...nextauth].js!");
-
 export default NextAuth({
   session: {
     jwt: true,
@@ -30,9 +28,6 @@ export default NextAuth({
           if (!isValid) {
             throw new Error("Could not log you in!");
           }
-
-          console.log("Authorized User:", user);
-
           return {
             id: user.id,
             username: user.username,
@@ -48,12 +43,10 @@ export default NextAuth({
   callbacks: {
     async session({ session, token }) {
       if (token) {
-        console.log("token: ", token);
         session.user = {
           username: token.name,
         };
       }
-      console.log(session);
       return session;
     },
   },

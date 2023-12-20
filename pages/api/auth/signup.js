@@ -3,7 +3,7 @@ import dbConnect from "@/lib/db";
 import User from "@/models/User";
 
 dbConnect();
-console.log('Model imported in signup.js!');
+
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const data = req.body;

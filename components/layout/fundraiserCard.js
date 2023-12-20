@@ -22,7 +22,6 @@ const FundraiserCard = ({
   });
 
   const handleDeleteFundraiser = (fundraiserId) => {
-    console.log("Are you sure you want to delete this ID? ", fundraiserId);
     setShowConfirmation(fundraiserId); // Set the confirmation state to the ID of the fundraiser to be deleted
   };
 
@@ -49,18 +48,11 @@ const FundraiserCard = ({
 
   const openModal = (formType, selectedFundraiser) => {
     setModalOpen(true);
-    console.log(
-      "formType: ",
-      formType,
-      " selectedFundraiser: ",
-      selectedFundraiser
-    );
     setFormData((prevFormData) => ({
       ...prevFormData,
       formType: formType,
       fundraiserData: selectedFundraiser,
     }));
-    console.log("FORM DATA: ", formData);
   };
 
   const closeModal = () => {

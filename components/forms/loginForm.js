@@ -20,9 +20,7 @@ const LoginForm = ({ closeModal }) => {
         username: enteredUsername,
         password: enteredPassword,
       });
-      console.log(response);
       if (response?.status == 200) {
-        console.log("Login successful!");
         setLoginError(null);
         closeModal();
       } else {

@@ -25,7 +25,6 @@ function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("form submitted: ", formData);
     await createMessage(formData);
     setFormData({ name: "", messageText: "" });
     setSuccessMessage(true); // Set success message visibility to true after form submission

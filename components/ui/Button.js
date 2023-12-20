@@ -31,7 +31,6 @@ const Button = ({
 
   const handleClick = () => {
     if (href) {
-      console.log("button pressed, navigating to: ", href);
       router.push(href); // if there is an href prop passed in, use router.push to navigate to the specified href
     } else if (onClick) {
       // otherwise use the onClick prop to determine what the button will do

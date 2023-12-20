@@ -16,7 +16,6 @@ const handler = async (req, res) => {
         messageText,
         date: new Date(),
       });
-      console.log(newMessage);
 
       await newMessage.save();
       res.status(201).json({ message: "Message added successfully" });

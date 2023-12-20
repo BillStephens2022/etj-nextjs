@@ -52,11 +52,9 @@ const Admin = ({ initialMessages, initialUsers }) => {
       console.error("Error fetching messages:", error);
     }
     if (data) {
-      console.log(data);
       const sortedMessages = data.sort(
         (a, b) => new Date(b.date) - new Date(a.date)
       );
-      console.log(sortedMessages);
       setMessages(sortedMessages);
     }
   }, [data, error]);

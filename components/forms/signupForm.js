@@ -3,7 +3,6 @@ import Button from "@/components/ui/Button";
 import classes from "@/components/forms/login.module.css";
 
 const createUser = async (username, password) => {
-  console.log("attempting to create user:  ", username, password);
   const response = await fetch("/api/auth/signup", {
     method: "POST",
     body: JSON.stringify({ username, password }),
@@ -33,7 +32,6 @@ const SignupForm = ({ closeModal }) => {
     if (enteredPassword === enteredConfirmedPassword) {
       try {
         const result = await createUser(enteredUsername, enteredPassword);
-        console.log(result);
         closeModal();
       } catch (error) {
         console.log(error);
