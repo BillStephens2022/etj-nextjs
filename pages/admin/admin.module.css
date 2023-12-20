@@ -44,10 +44,10 @@
 }
 
 .warning_wrapper {
- text-align: center;
- color: #d70827;
- font-weight: 900;
- letter-spacing: 0.1rem;
+  text-align: center;
+  color: #d70827;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
 }
 
 .table {
@@ -188,5 +188,30 @@
   }
   .users_container {
     padding: 0;
+  }
+}
+
+@media (max-width: 300px) {
+  .messages_div {
+    padding: 0.5rem;
+  }
+
+  .message_date,
+  .message_name,
+  .message_text,
+  .table_data, .warning {
+    font-size: 0.75rem;
+  }
+
+  .functions_header {
+    font-size: 1rem;
+  }
+
+  .welcome_header {
+    font-size: 1rem;
+  }
+
+  .welcome_header_span {
+    font-size: 1.1rem;
   }
 }

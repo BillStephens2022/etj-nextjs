@@ -168,3 +168,29 @@
     padding: 1rem 1.25rem;
   }
 }
+
+
+@media (max-width: 300px) {
+  .about_container {
+    padding-top: 0.5rem;
+  }
+
+  .slider_div {
+    display: none;
+  }
+
+  .about_p {
+    font-size: 0.85rem;
+  }
+
+  .member_name_heading {
+    font-size: 1.25rem;
+  }
+
+  .member_details {
+    padding: 0;
+    font-size: 0.85rem;
+    flex: 2;
+    max-width: 95vw;
+  }
+}

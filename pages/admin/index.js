@@ -164,12 +164,7 @@ const Admin = ({ initialMessages, initialUsers }) => {
             <div className={classes.functions_container}>
               <h2 className={classes.functions_header}>Admin Functions</h2>
               <table className={classes.table}>
-                <thead>
-                  {/* <tr>
-                <th>Admin Functions:</th>
-                <th>Buttons</th>
-              </tr> */}
-                </thead>
+                <thead></thead>
                 <tbody>
                   <tr className={classes.table_row}>
                     <td className={classes.table_data}>Add A New Fundraiser</td>

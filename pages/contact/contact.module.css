@@ -118,3 +118,9 @@
     width: 100%;
   }
 }
+
+@media (max-width: 300px) {
+  .fb_text, .email_text {
+    font-size: 0.75rem;
+  }
+}

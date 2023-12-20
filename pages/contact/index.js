@@ -67,7 +67,7 @@ function Contact() {
             <FaEnvelope
               style={{ width: "25px", height: "25px", marginRight: "5px" }}
             />
-            <p>admin@enterthejohnsons.org</p>
+            <p className={classes.email_text}>admin@enterthejohnsons.org</p>
           </div>
         </div>
         <div className={classes.form_div}>
