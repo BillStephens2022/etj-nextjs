@@ -16,14 +16,14 @@ import FormModal from "@/components/forms/formModal";
 import classes from "@/pages/admin/admin.module.css";
 import IconButton from "@/components/ui/iconButton";
 
-const Admin = () => {
+const Admin = ({ initialMessages, initialUsers }) => {
   const { data: session } = useSession();
   // state for whether modal is open or closed
   const [modalOpen, setModalOpen] = useState(false);
   // state to set the form type to tell the modal which form to display
   const [formType, setFormType] = useState("");
-  const [messages, setMessages] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [messages, setMessages] = useState(initialMessages || []);
+  const [users, setUsers] = useState(initialUsers || []);
 
   const { data, error } = useSWR(
     "/api/messages/",
@@ -40,9 +40,10 @@ const Admin = () => {
   // Use useEffect to handle changes to the session object
   useEffect(() => {
     if (!session) {
-      console.log("SESSION: ", session);
       setModalOpen(true);
       setFormType("login");
+    } else {
+      setModalOpen(false);
     }
   }, [session]);
 
@@ -65,16 +66,15 @@ const Admin = () => {
       console.error("Error fetching users:", userError);
     }
     if (userData) {
-      console.log(userData);
       setUsers(userData);
     }
   }, [userData, userError]);
 
-  if (error) {
+  if (error || userError) {
     return <p>{error}</p>;
   }
 
-  if (!data) {
+  if (!data || !userData) {
     return (
       <>
         <Header />
@@ -215,19 +215,23 @@ const Admin = () => {
               <h2 className={classes.functions_header}>Admin Users</h2>
               <table className={classes.table}>
                 <thead className={classes.warning_wrapper}>
-                 
-                 <IoIosWarning style={{ color: "goldenrod", fontSize: "50px" }}/>
-              
-                 <thead className={classes.warning}>
-                 WARNING-THIS WILL PERMANENTLY DELETE A USER
-                 </thead>
+                  <IoIosWarning
+                    style={{ color: "goldenrod", fontSize: "50px" }}
+                  />
+
+                  <thead className={classes.warning}>
+                    WARNING-THIS WILL PERMANENTLY DELETE A USER
+                  </thead>
                 </thead>
                 <tbody>
                   {users.map((user) => (
                     <tr className={classes.table_row} key={user._id}>
                       <td className={classes.table_data}>{user.username}</td>
                       <td className={classes.table_data}>
-                        <Button onClick={() => deleteUserHandler(user._id)} backgroundImage="var(--linear-gradient-red)">
+                        <Button
+                          onClick={() => deleteUserHandler(user._id)}
+                          backgroundImage="var(--linear-gradient-red)"
+                        >
                           <FaTrashCan />
                         </Button>
                       </td>
@@ -245,9 +249,7 @@ const Admin = () => {
               <IconButton className={classes.notification_icon} color="white">
                 <IoMdNotificationsOutline />
                 {messageCount > 0 && (
-                  <p className={classes.message_count_dot}>
-                    {messageCount}
-                  </p>
+                  <p className={classes.message_count_dot}>{messageCount}</p>
                 )}
               </IconButton>
             </h3>
@@ -293,5 +295,26 @@ const Admin = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  let initialMessages = [];
+  let initialUsers = [];
+
+  try {
+    initialMessages = await getMessages();
+    initialMessages.sort((a, b) => new Date(b.date) - new Date(a.date));
+    initialUsers = await getUsers();
+  } catch (error) {
+    console.error("Error fetching messages or users:", error);
+  }
+
+  return {
+    props: {
+      initialMessages,
+      initialUsers,
+    },
+    revalidate: 1200,
+  };
+}
 
 export default Admin;
