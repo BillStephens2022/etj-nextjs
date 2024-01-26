@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import logo from "@/public/images/logo2.png";
+import classPhoto from "@/public/images/class2.png";
 import classes from "@/styles/Home.module.css";
 import Header from "@/components/layout/header";
 import Button from "@/components/ui/Button";
@@ -65,6 +66,11 @@ const Home = () => {
           <div className={classes.row}>
             <div className={classes.box}>
               <h4 className={classes.box_header}>Events</h4>
+              
+              <Image width={250} height={250} src={classPhoto}/>
+              <p className={classes.box_p}>
+                Join us every Tuesday and Thursday @ 7PM.
+              </p>
             </div>
             <div className={classes.box}>
               <h4 className={classes.box_header}>Get Involved</h4>
