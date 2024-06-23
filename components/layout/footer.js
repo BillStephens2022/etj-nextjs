@@ -4,6 +4,7 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import classes from "@/components/layout/footer.module.css";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <div className={classes.footer}>
       <Link href="/admin">
@@ -12,7 +13,7 @@ const Footer = () => {
         </div>
       </Link>
       <p className={classes.text}>
-        Copyright © 2023, ETJ, a Non-Profit 501(c)(3) organization.&nbsp;&nbsp;{" "}
+        Copyright © {currentYear}, ETJ, a Non-Profit 501(c)(3) organization.&nbsp;&nbsp;{" "}
         Designed by:{" "}
         <Link
           className={classes.link}

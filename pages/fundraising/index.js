@@ -13,7 +13,7 @@ const Fundraising = ({ fundraisers }) => {
   const [localFundraisers, setLocalFundraisers] = useState(fundraisers || []);
 
   const { data: updatedFundraisers, error } = useSWR("/api/fundraiser/", getFundraisers, {
-    refreshInterval: 1000,
+    refreshInterval: 10000,
   });
 
   useEffect(() => {
